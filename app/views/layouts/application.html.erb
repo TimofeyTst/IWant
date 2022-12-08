@@ -7,51 +7,31 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <header>
-      <nav class="navbar">
-        <div class="nav-brand">
-          <a href="/"><%= image_tag('logo.png') %></a>
-        </div>
-        <div class="nav-pages">
-          <div>
-            <%= link_to 'Add post', '/', class: 'nav-link' %>
-          </div>
-          <div>
-            <%= link_to 'Actions', '/', class: 'nav-link' %>
-          </div>
-          <div>
-            <%= link_to 'Messages', '/', class: 'nav-link' %>
-          </div>
-          <% if current_user.present? %>
-            <div>
-              <%= link_to 'Profile', current_user, class: 'nav-link' %>
-            </div>
-          <% else %>
-            <div>
-              <%= link_to 'Sign in', session_new_path, class: 'nav-link' %>
-            </div>
-          <% end %>
-        </div>
-      </nav>
-    </header>
+    <%= render 'layouts/navbar' %>
 
     <main>
+    <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
       <div class="container">
         <%= yield %>
       <div>
 
-      <% unless flash[:notice].nil? %>
-        <div class="container">
-          <p class="notice-text"><%= flash[:notice] %></p>
-        </div>
-      <% end %>
       <% unless flash[:error].nil? %>
         <div class="container">
           <p class="error-text"><%= flash[:error] %></p>
+        </div>
+      <% end %>
+      <% unless alert.nil? %>
+        <div class="container">
+          <p class="error-text"><%= alert %></p>
+        </div>
+      <% end %>
+      <% unless notice.nil? %>
+        <div class="container">
+          <p class="notice-text"><%= notice %></p>
         </div>
       <% end %>
     </main>

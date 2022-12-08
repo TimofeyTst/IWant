@@ -1,12 +1,10 @@
 class ApplicationController < ActionController::Base
-  include ApplicationHelper
-  before_action :require_login
+  before_action :configure_permitted_parameters, if: :devise_controller?
 
-  private
+  protected
 
-  def require_login
-    return if signed_in?
-
-    redirect_to session_new_path, notice: 'Please sign in'
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: %i[username email])
+    devise_parameter_sanitizer.permit(:sign_in, keys: [:username])
   end
 end

@@ -1,0 +1,27 @@
+<header>
+      <nav class="navbar">
+        <div class="nav-brand">
+          <a href="/"><%= image_tag('logo.png') %></a>
+        </div>
+        <div class="nav-pages">
+          <div>
+            <%= link_to 'Add post', '/', class: 'nav-link' %>
+          </div>
+          <div>
+            <%= link_to 'Actions', '/', class: 'nav-link' %>
+          </div>
+          <div>
+            <%= link_to 'Messages', '/', class: 'nav-link' %>
+          </div>
+          <% if current_user.present? %>
+            <div>
+              <%= link_to 'Profile', edit_user_registration_path, class: 'nav-link' %>
+            </div>
+          <% else %>
+            <div>
+              <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>
+            </div>
+          <% end %>
+        </div>
+      </nav>
+</header>
