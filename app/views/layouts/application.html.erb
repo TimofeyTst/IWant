@@ -11,6 +11,63 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav class="navbar">
+        <div class="nav-brand">
+          <a href="/"><%= image_tag('logo.png') %></a>
+        </div>
+        <div class="nav-pages">
+          <div>
+            <%= link_to 'Add post', '/', class: 'nav-link' %>
+          </div>
+          <div>
+            <%= link_to 'Actions', '/', class: 'nav-link' %>
+          </div>
+          <div>
+            <%= link_to 'Messages', '/', class: 'nav-link' %>
+          </div>
+          <% if current_user.present? %>
+            <div>
+              <%= link_to 'Profile', current_user, class: 'nav-link' %>
+            </div>
+          <% else %>
+            <div>
+              <%= link_to 'Sign in', session_new_path, class: 'nav-link' %>
+            </div>
+          <% end %>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container">
+        <%= yield %>
+      <div>
+
+      <% unless flash[:notice].nil? %>
+        <div class="container">
+          <p class="notice-text"><%= flash[:notice] %></p>
+        </div>
+      <% end %>
+      <% unless flash[:error].nil? %>
+        <div class="container">
+          <p class="error-text"><%= flash[:error] %></p>
+        </div>
+      <% end %>
+    </main>
+
+    <footer>
+      <div class="navbar">
+        <div class="nav-pages">
+          <div>
+              <%= link_to 'Privacy Policy', '/', class: 'nav-link' %>
+          </div>
+          <div class="vertical-line"></div>
+          <div>
+              <%= link_to 'Address', '/', class: 'nav-link' %>
+          </div>
+        </div>
+      </div>
+    </footer>  
   </body>
 </html>

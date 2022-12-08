@@ -1,0 +1,21 @@
+<div class="form">
+    <h2 class="colored-text">Authorization</h2>
+    <%= form_with url: session_create_path, method: :post do |form| %>
+        <div class="line">
+            <%= form.label :username, 'Login' %>
+            <%= form.text_field :username, required: true %>
+        </div>
+        <div class="line">
+            <%= form.label :password, 'Password' %>
+            <%= form.password_field :password, required: true %>
+        </div>
+        <div class="submit">
+            <%= form.submit "Log in", class: 'button', required: true %>
+        </div>
+    <% end %>
+    <div class="line">
+        <div>Don`t have any account?</div>
+        <%= link_to 'Sign Up', new_user_path %>
+    </div>
+</div>
+
