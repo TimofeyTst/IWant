@@ -15,12 +15,12 @@
           </div>
           <% if user_signed_in? %>
             <% if current_user.avatar.attached? %>
-              <div>
-                <%= link_to (image_tag(current_user.avatar, class: 'avatar-link')), edit_user_registration_path, class: 'nav-link' %>
+              <div> <!-- edit_user_registration_path -->
+                <%= link_to (image_tag(current_user.avatar, class: 'avatar-link')), profile_path(current_user), class: 'nav-link' %>
               </div>
             <% else %>
               <div>
-                <%= link_to 'Profile', edit_user_registration_path, class: 'nav-link' %>
+                <%= link_to 'Profile', profile_path(current_user), class: 'nav-link' %>
               </div>
             <% end %>
           <% else %>

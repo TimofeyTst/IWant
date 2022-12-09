@@ -35,6 +35,7 @@
     </div>
 
     <div class="field">
+      <%= f.label :avatar, 'Profile photo' %>
       <%= f.file_field :avatar %>
     </div>
 
@@ -51,9 +52,12 @@
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
   <div class="line">
+    <div>Don`t emplore your avatar photo?</div>
+    <%= button_to "Delete avatar picture", profile_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, class: 'button delete' %>
+  </div>  
+  <div class="line">
     <div>Want to leave us?</div>
     <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'button delete_account' %>
   </div>
-  <%= button_to "Log out", destroy_user_session_path, class: 'button', method: :delete %>
 
 </div>
