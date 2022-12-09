@@ -1,9 +1,30 @@
 html {
     --main-color: #080808;
+    --back-color: #151515;
     --vsp-color: #8f8c8f;
     
-    --light-text-color: #fff;
 
     --text-color: #b1b1b1;
-    --vsp-text-color: #faaaff;
+    --back-header-color: #fff;
+    --back-light-color: #fff;
+    --back-span-color: #00b0ff;
+    --back-text-color: #b1b1b1;
+
+    --back-color: #151515;
+    --back-vsp-color: #585858;
+    --back-button-color: #2b2a2a;
+
+    --light-text-color: #fff;
+    --error-text-color: rgb(248, 86, 221);
+    --back-error-color: #3a383a;
+
+    --link-color: #585858;
+    --link-hover-color: #fff;
+}
+
+.error-text {
+    color: var(--error-text-color);
+}
+.header-text {
+    color: var(--light-text-color);
 }

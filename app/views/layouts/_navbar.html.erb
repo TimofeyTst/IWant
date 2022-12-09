@@ -13,10 +13,16 @@
           <div>
             <%= link_to 'Messages', '/', class: 'nav-link' %>
           </div>
-          <% if current_user.present? %>
-            <div>
-              <%= link_to 'Profile', edit_user_registration_path, class: 'nav-link' %>
-            </div>
+          <% if user_signed_in? %>
+            <% if current_user.avatar.attached? %>
+              <div>
+                <%= link_to (image_tag(current_user.avatar, class: 'avatar-link')), edit_user_registration_path, class: 'nav-link' %>
+              </div>
+            <% else %>
+              <div>
+                <%= link_to 'Profile', edit_user_registration_path, class: 'nav-link' %>
+              </div>
+            <% end %>
           <% else %>
             <div>
               <%= link_to 'Sign in', new_user_session_path, class: 'nav-link' %>

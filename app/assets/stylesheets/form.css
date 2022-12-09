@@ -1,0 +1,144 @@
+
+.container .form,
+.container .user_form {
+    margin: 30px 0px;
+    width: 40%;
+    padding: 30px 40px;
+    border-radius: 15px;
+
+    background-color: var(--back-color);
+}
+.container .form h2,
+.container .user_form h2 {
+    margin-bottom: 45px;
+    color: var(--back-header-color);
+}
+.container .form .field,
+.container .user_form .field {
+    position: relative;
+    height: 30px;
+    margin-top: 50px;
+    width: 100%;
+}
+.container .form .field input {
+    position: absolute;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    font-size: 18px;
+    outline: none;
+    
+    width: 100%;
+    color: var(--back-light-color);
+}
+.container .form .field label {
+    position: absolute;
+    top: 0;
+    Left: 0;
+    pointer-events: none;
+    display: block;
+    font-size: 18px;
+    transition: 0.5s;
+    color: var(--back-vsp-color);
+}
+.container .form .field input:focus + label,
+.container .form .field input:valid + label,
+.container .form .field .field_with_errors label {
+    transform: translateY(-35px);
+    font-size: 16px;
+    padding: 2px 6px;
+    border-radius: 6px;
+
+    color: var(--back-text-color);
+    background: var(--back-vsp-color);
+}
+.container .form .field .field_with_errors label {
+    color: var(--error-text-color);
+    background: var(--back-error-color);
+}
+.container .form .field span {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--back-vsp-color);
+}
+.container .form .field span:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    Left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: center;
+    
+    transition: transform 1s ease-in-out;
+    background: var(--back-light-color);
+}
+.container .form .field input:focus ~ span:before,
+.container .form .field input:valid ~ span:before,
+.container .form .field .field_with_errors + span:before {
+    transform: scaleX(1);
+    transform-origin: center;
+    transition: transform 1s ease-in-out;
+}
+.form-button{
+    display: flex;
+    justify-content: end;
+}
+.form-button .button{
+    margin-top: 20px;
+    border: none;
+    box-shadow: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 6px 12px;
+    transition: 0.5s;
+
+    justify-content: end;
+    font-synthesis: 16px;
+    cursor: pointer;
+    color: var(--back-vsp-color);
+    background: var(--back-button-color);
+}
+.form-button .button:hover{
+    color: var(--back-light-color);
+    background: var(--back-vsp-color);
+}
+.container .line{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 12px;
+ }
+.container .line *{
+    padding: 4px 8px;
+}
+/* User Edit */
+.container .user_form .field label {
+    display: block;
+    font-size: 18px;
+    transition: 0.5s;
+    color: var(--back-text-color);
+}
+.container .user_form .field input {
+    margin-top: 10px;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    font-size: 18px;
+    outline: none;
+    
+    width: 100%;
+    color: var(--back-light-color);
+}
+.container .user_form .field span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--back-vsp-color);
+}

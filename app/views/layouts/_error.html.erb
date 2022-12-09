@@ -1,0 +1,12 @@
+<div class="container">
+    <% unless alert.nil? %>
+      <div class="container">
+        <p class="error-text"><%= alert %></p>
+      </div>
+    <% end %>
+    <% unless notice.nil? %>
+      <div class="container">
+        <p class="notice-text"><%= notice %></p>
+      </div>
+    <% end %>
+</div>

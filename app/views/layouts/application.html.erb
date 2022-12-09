@@ -10,44 +10,17 @@
   </head>
 
   <body>
+  
     <%= render 'layouts/navbar' %>
 
+    <%= render 'layouts/error' %>
+
     <main>
-    <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
       <div class="container">
         <%= yield %>
       <div>
-
-      <% unless flash[:error].nil? %>
-        <div class="container">
-          <p class="error-text"><%= flash[:error] %></p>
-        </div>
-      <% end %>
-      <% unless alert.nil? %>
-        <div class="container">
-          <p class="error-text"><%= alert %></p>
-        </div>
-      <% end %>
-      <% unless notice.nil? %>
-        <div class="container">
-          <p class="notice-text"><%= notice %></p>
-        </div>
-      <% end %>
     </main>
-
-    <footer>
-      <div class="navbar">
-        <div class="nav-pages">
-          <div>
-              <%= link_to 'Privacy Policy', '/', class: 'nav-link' %>
-          </div>
-          <div class="vertical-line"></div>
-          <div>
-              <%= link_to 'Address', '/', class: 'nav-link' %>
-          </div>
-        </div>
-      </div>
-    </footer>  
+    
+    <%= render 'layouts/footer' %>
   </body>
 </html>
