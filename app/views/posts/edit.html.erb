@@ -2,9 +2,7 @@
 
 <%= render "form", post: @post %>
 
-<br>
-
-<div>
-  <%= link_to "Show this post", @post %> |
-  <%= link_to "Back to posts", posts_path %>
+<div class="line">
+  <%= link_to "Show this post", @post, class: 'button' %>
+  <%= link_to "Back to posts", posts_path, class: 'button' %>
 </div>

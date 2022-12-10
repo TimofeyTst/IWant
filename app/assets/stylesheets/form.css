@@ -88,6 +88,7 @@
 .form-button{
     display: flex;
     justify-content: end;
+    align-items: center;
 }
 .form-button .button{
     margin-top: 40px;
@@ -158,6 +159,71 @@
     transition: 0.5s;
 }
 .container .user_form .field input[type="file"]::-webkit-file-upload-button:hover {
+    color: var(--back-light-color);
+    background: var(--back-vsp-color);
+}
+/* Post book form */
+.book_form{
+    padding: 30px 40px;
+    border-radius: 15px;
+    width: 36vw;
+    background-color: var(--back-color);
+}
+.book_form .book {
+    display: flex;
+    justify-content: space-between;
+    flex: 1 0 auto;
+}
+.book_form .book .left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.book_form .book label{
+    display: block;
+    font-size: 18px;
+    color: var(--back-text-color);
+}
+.book_form .book input, 
+.book_form .book textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--back-vsp-color);
+    box-shadow: none;
+    outline: none;
+    font-size: 16px;
+    padding: 4px;
+    width: 16vw;
+
+    color: var(--back-light-color);
+}
+.book_form .book input[type="file"]{
+    color: transparent;
+    border-bottom: none;
+}
+.book_form .book .post_picture {
+    margin: 0px;
+}
+.book_form .bottom {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.book_form .button{
+    border: none;
+    box-shadow: none;
+    border-radius: 6px;
+    font-size: 18px;
+    font-weight: 600;
+    padding: 6px 14px;
+    transition: 0.5s;
+
+    cursor: pointer;
+    color: var(--back-vsp-color);
+    background: var(--back-button-color);
+}
+.book_form .button:hover{
     color: var(--back-light-color);
     background: var(--back-vsp-color);
 }

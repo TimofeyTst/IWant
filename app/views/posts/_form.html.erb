@@ -1,37 +1,43 @@
-<%= form_with(model: post) do |form| %>
-  <% if post.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<div class="book_form">
+  <%= form_with(model: post) do |form| %>
+    <% if post.errors.any? %>
+      <div class="container">
+          <ul>
+          <% post.errors.each do |error| %>
+            <li class="error-text"><%= error.full_message %></li>
+          <% end %>
+          </ul>
+      </div>
+    <% end %>
 
-      <ul>
-        <% post.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
+    <div class="book">
+      <div class="left">
+        <div class="field">
+          <%= form.label :description %>
+          <%= form.text_area :description %>
+        </div>
+
+        <div class="field">
+          <%= form.label :title %>
+          <%= form.text_field :title %>
+        </div>        
+      </div>
+
+      <div class="right">
+        <div class="field">
+          <%= image_tag 'default_preview.png', id: 'blah', alt: "Preview", class: 'post_picture' %>
+        </div>
+      </div>
     </div>
+
+    <div class="bottom">
+      <div class="field">
+        <%= form.file_field :picture, :id => "imgInp" %>
+      </div>   
+      <div class="field">
+        <%= form.submit 'Save', class: 'button' %>
+      </div>
+    </div>
+     
   <% end %>
-
-  <div class="field">
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div class="field">
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
-  </div>
-
-  <div class="field">
-    <%= form.label :picture, style: "display: block" %>
-    <%= form.file_field :picture %>
-  </div>
-
-  <div class="form-button">
-    <%= form.submit 'Create', class: 'button' %>
-  </div>
-<% end %>
+</div>

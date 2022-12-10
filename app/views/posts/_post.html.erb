@@ -1,23 +1,21 @@
-<div id="<%= dom_id post %>">
-  <p>
-    <strong>User:</strong>
-    <%= post.user_id %>
-  </p>
+<div class="book_form" id="<%= dom_id post %>">
+  <div class="book">
+      <div class="left">
+        <div class="field">
+          <p>Description:</p>
+          <p><%= post.description %></p>
+        </div>
 
-  <p>
-    <strong>Title:</strong>
-    <%= post.title %>
-  </p>
+        <div class="field">
+          <p>Title:</p>
+          <p><%= post.title %></p>
+        </div>        
+      </div>
 
-  <p>
-    <strong>Description:</strong>
-    <%= post.description %>
-  </p>
-
-  <p>
-    <strong>Picture:</strong>
-    <%= image_tag post.picture, class: "post_picture" if post.picture.attached?%>
-    <%= link_to post.picture.filename, post.picture, class: 'button' if post.picture.attached? %>
-  </p>
-
+      <div class="right">
+        <div class="field">
+          <%= link_to (image_tag post.picture, class: "post_picture"), post.picture %>
+        </div>
+      </div>
+  </div>
 </div>

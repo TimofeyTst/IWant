@@ -1,9 +1,14 @@
-<h1>New post</h1>
+<div class="container smart">
+    <div class="avatar">
+        <% if current_user.avatar.attached? %>
+            <%= image_tag current_user.avatar, class: "avatar-mini"%>
+        <% else %>
+            <%= image_tag 'default_avatar.jpg',class: "avatar-mini" %>
+        <% end %>
+    </div>
+    <div class="name">
+        <%= current_user.username.capitalize %> new book  
+    </div>
+</div>
 
 <%= render "form", post: @post %>
-
-<br>
-
-<div>
-  <%= link_to "Back to posts", posts_path %>
-</div>

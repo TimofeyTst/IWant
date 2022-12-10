@@ -55,3 +55,28 @@ button:hover{
     color: var(--back-light-color);
     background: var(--back-vsp-color);
 }
+input[type="file"] {
+    display: flex;
+    cursor: pointer;
+    color: var(--back-text-color);
+}
+input[type="file"]::-webkit-file-upload-button {
+    font-size: 16px;
+    font-weight: 600;
+    background: var(--back-button-color);
+    color: var(--back-vsp-color);
+    outline: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 4px 8px;
+    margin-right: 10px;
+    transition: 0.5s;
+}
+input[type="file"]::-webkit-file-upload-button:hover {
+    color: var(--back-light-color);
+    background: var(--back-vsp-color);
+}
+input[type="file"]{
+    color: transparent;
+}

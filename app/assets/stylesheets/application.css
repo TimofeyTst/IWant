@@ -63,15 +63,27 @@ footer .navbar .vertical-line{
     flex-direction: column;
     margin-bottom: 20px;
 }
+.container.smart {
+    margin: 20px;
+}
 .profile_settings {
+    content: ' ';
     position: absolute;
     top: 10px;
-    right: 3.7vw;  
+    right: 2.9vw;  
     transition: 0.5s;  
     display: flex;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--back-color);
 }
 .profile_settings:hover {
     cursor: pointer;
+    background: var(--back-vsp-color);
 }
 .profile_settings:hover > .round {
     background: var(--link-hover-color);

@@ -1,8 +1,7 @@
 class ProfileController < ApplicationController
   def show
     @posts_by_three = []
-    posts = Post.all.where(user_id: current_user.id)
-    posts.each_slice(3) { |line| @posts_by_three.push(line) }
+    current_user.posts.each_slice(3) { |line| @posts_by_three.push(line) }
     @posts_by_three
   end
 

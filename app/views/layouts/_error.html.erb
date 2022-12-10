@@ -1,11 +1,11 @@
-<% unless alert.nil? || notice.nil? %>
+<% if alert|| notice %>
   <div class="container">
-      <% unless alert.nil? %>
+      <% if alert %>
         <div class="container">
           <p class="error-text"><%= alert %></p>
         </div>
       <% end %>
-      <% unless notice.nil? %>
+      <% if notice %>
         <div class="container">
           <p class="notice-text"><%= notice %></p>
         </div>
