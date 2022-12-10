@@ -1,0 +1,23 @@
+<div id="<%= dom_id post %>">
+  <p>
+    <strong>User:</strong>
+    <%= post.user_id %>
+  </p>
+
+  <p>
+    <strong>Title:</strong>
+    <%= post.title %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= post.description %>
+  </p>
+
+  <p>
+    <strong>Picture:</strong>
+    <%= image_tag post.picture, class: "post_picture" if post.picture.attached?%>
+    <%= link_to post.picture.filename, post.picture, class: 'button' if post.picture.attached? %>
+  </p>
+
+</div>

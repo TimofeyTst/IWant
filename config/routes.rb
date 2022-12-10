@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   root 'home#show'
 
   resources :profile, only: %i[show destroy]
