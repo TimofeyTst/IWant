@@ -1,14 +1,29 @@
 <div class="book_form" id="<%= dom_id post %>">
   <div class="book">
       <div class="left">
-        <div class="field">
-          <p>Description:</p>
-          <p><%= post.description %></p>
+        <div class="container smart">
+          <div class="avatar">
+              <% if @post.user.avatar.attached? %>
+                  <%= link_to (image_tag @post.user.avatar, class: "avatar-mini"), profile_path(@post.user) %>
+              <% else %>
+                  <%= image_tag 'default_avatar.jpg', class: "avatar-mini" %>
+              <% end %>
+          </div>
+          <div class="name">
+              <%= @post.user.username.capitalize %> book  
+          </div>
         </div>
+        
+        <div class="big_text">
+          <div class="field">
+            <p>Description:</p>
+            <p><%= post.description %></p>
+          </div>
 
-        <div class="field">
-          <p>Title:</p>
-          <p><%= post.title %></p>
+          <div class="field">
+            <p>Title:</p>
+            <p><%= post.title %></p>
+          </div>
         </div>        
       </div>
 

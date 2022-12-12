@@ -1,5 +1,5 @@
 <header>
-      <nav class="navbar">
+      <nav class="navbar sticky">
         <div class="nav-brand">
           <a href="/"><%= image_tag('logo.png') %></a>
         </div>
@@ -8,10 +8,10 @@
             <%= link_to 'Lines', posts_path, class: 'nav-link' %>
           </div>
           <div>
-            <%= link_to 'Add post', new_post_path, class: 'nav-link' %>
+            <%= link_to 'Interest', '/', class: 'nav-link' %>
           </div>
           <div>
-            <%= link_to 'Actions', '/', class: 'nav-link' %>
+            <%= link_to 'Add post', new_post_path, class: 'nav-link' %>
           </div>
           <div>
             <%= link_to 'Messages', '/', class: 'nav-link' %>

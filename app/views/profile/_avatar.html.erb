@@ -1,0 +1,16 @@
+<% if user.avatar.attached? %>
+    <div class="avatar">
+        <%= image_tag user.avatar, class: "avatar-big"%>
+    </div>
+<% else %>
+    <div class="avatar">
+        <% if user == current_user %>
+            <%= link_to (image_tag 'default_avatar.jpg', class: "avatar-big"), edit_user_registration_path %>
+        <% else %>
+            <%= image_tag 'default_avatar.jpg', class: "avatar-big" %>
+        <% end %>
+    </div>
+<% end %>
+    <div class="name">
+        <%= user.username.capitalize %>  
+    </div>

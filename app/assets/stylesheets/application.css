@@ -13,6 +13,13 @@
  *= require_tree .
  *= require_self
  */
+ .sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    background: var(--main-color);
+}
 .navbar {
     height: 65px;
     display: flex;
@@ -64,13 +71,20 @@ footer .navbar .vertical-line{
     margin-bottom: 20px;
 }
 .container.smart {
-    margin: 20px;
+    margin: 0px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: row;
+}
+.container.smart *{
+    margin: 5px;
 }
 .profile_settings {
     content: ' ';
     position: absolute;
     top: 10px;
-    right: 2.9vw;  
+    right: 1.95vw;  
     transition: 0.5s;  
     display: flex;
     height: 50px;
@@ -100,20 +114,22 @@ footer .navbar .vertical-line{
     display: flex;
     justify-content: space-between;
 }
-.avatar-link {
-    height: 50px;
-    width: 50px;
+.avatar-link,
+.avatar-mini,
+.avatar-big  {
+    border: 2px solid var(--main-color);
+    outline: 2px solid var(--avatar-border-color);
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
 }
 .avatar-mini {
     height: 100px;
     width: 100px;
-    border-radius: 50%;
 }
 .avatar-big {
     height: 16vw;
     width: 16vw;
-    border-radius: 50%;
     margin: 20px;
 }
 .name {
@@ -143,6 +159,9 @@ footer .navbar .vertical-line{
 .post_picture:hover,
 .post_picture_big:hover {
     transform: scale(1.1);
+}
+.book_form .post_picture_big:hover {
+    transform: translate(6%, 3%) scale(1.05);
 }
 .posts {
     display: flex;

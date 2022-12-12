@@ -20,6 +20,8 @@ html {
 
     --link-color: #585858;
     --link-hover-color: #fff;
+
+    --avatar-border-color: #7600a5;
 }
 
 .error-text {

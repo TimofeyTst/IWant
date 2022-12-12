@@ -174,10 +174,16 @@
     justify-content: space-between;
     flex: 1 0 auto;
 }
-.book_form .book .left{
+.book_form .book .left {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+.book_form .book .left .big_text{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex: 1 0 auto;
 }
 .book_form .book label{
     display: block;
@@ -210,7 +216,8 @@
     justify-content: space-between;
     align-items: center;
 }
-.book_form .button{
+.book_form .button,
+.comment_form .button{
     border: none;
     box-shadow: none;
     border-radius: 6px;
@@ -223,7 +230,11 @@
     color: var(--back-vsp-color);
     background: var(--back-button-color);
 }
-.book_form .button:hover{
+.comment_form .button{
+    font-size: 14px;
+}
+.book_form .button:hover,
+.comment_form .button:hover{
     color: var(--back-light-color);
     background: var(--back-vsp-color);
 }

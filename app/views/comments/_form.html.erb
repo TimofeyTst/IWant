@@ -1,0 +1,10 @@
+<%= form_with(model: [post, post.comments.build]) do |f| %>
+    <div class="comment_form">
+        <div class="field">
+            <%= f.text_area :body %>
+        </div>
+        <div class="field">
+            <%= f.submit "Reply", class: "button" %>
+        </div>
+    </div>
+<% end %>

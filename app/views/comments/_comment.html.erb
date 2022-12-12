@@ -1,0 +1,31 @@
+<div class="comment" id="comment_<%= comment.id %>">
+    <div class="left">
+        <% if comment.user.avatar.attached? %>
+            <div class="avatar">
+                <%= link_to (image_tag comment.user.avatar, class: "avatar-link"), profile_path(comment.user)%>
+            </div>
+        <% else %>
+            <div class="avatar">
+                <%= link_to (image_tag 'default_avatar.jpg', class: "avatar-link"), profile_path(comment.user) %>
+            </div>
+        <% end %>
+
+        <% if current_user == comment.user %>
+            <%= button_to "Del", [post, comment], class: 'button delete', method: :delete %>
+        <% end %>
+    </div>
+
+    <div class="right">
+        <div class="field">
+            <div>
+                <%= (comment.user.username) %>
+            </div>
+            <div class="date">
+                <%= (comment.created_at).day%>.<%= (comment.created_at).month %>
+            </div>
+        </div>
+        <div class="field">
+            <p><%= comment.body %></p>
+        </div>
+    </div>
+</div>
