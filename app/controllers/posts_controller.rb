@@ -4,7 +4,10 @@ class PostsController < ApplicationController
   # GET /posts or /posts.json
   def index
     @posts_by_three = []
-    posts = Post.all.each_slice(3) { |line| @posts_by_three.push(line) }
+    posts = Post.all.shuffle
+    posts.each_slice(posts.length / 3) { |line| @posts_by_three.push(line) }
+    @posts_by_three.last.each_with_index { |el, index| @posts_by_three[index].push(el) }
+    @posts_by_three.pop
     @posts_by_three
   end
 

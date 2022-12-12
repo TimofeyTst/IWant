@@ -128,19 +128,30 @@ footer .navbar .vertical-line{
     background: #e90000;
 }
 /* Posts */
-.post_picture {
-    height: 200px;
-}
-.post_picture {
-    height: 24vw;
+.post_picture,
+.post_picture_big {
+    /* height: 24vw; */
+    box-shadow:  0 16px 25px rgba(0,0,0,0.1);
     width: 18vw;
-    margin: 12px;
+    margin: 8px;
     border-radius: 18px;
+    transition: 0.5s;
 }
-.posts_line {
+.post_picture_big {
+    width: 26vw;
+}
+.post_picture:hover,
+.post_picture_big:hover {
+    transform: scale(1.1);
+}
+.posts {
+    display: flex;
+    justify-content: flex-start;
+}
+.posts_column {
     display: flex;
     justify-content: flex-start;
     align-items: stretch;
     box-sizing: border-box;
-    flex-direction: row;
+    flex-direction: column;
 }
