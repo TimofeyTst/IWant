@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  root 'home#show'
-  
+  root 'posts#index'
+  get 'home/show'
+  get 'search', to: 'search#index'
+
   resources :profile, only: %i[show destroy]
   devise_for :users
   resources :posts do

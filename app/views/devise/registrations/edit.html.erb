@@ -34,9 +34,14 @@
       <span></span>
     </div>
 
-    <div class="field">
-      <%= f.label :avatar, 'Profile photo' %>
-      <%= f.file_field :avatar %>
+    <div class="row">
+      <div class="field">
+        <%= f.label :avatar, 'Profile photo' %>
+        <%= f.file_field :avatar, :id => "imgInp" %>
+      </div>
+      <div class="field">
+        <%= image_tag 'default_preview.png', id: 'blah', alt: "Preview", class: 'avatar-mini' %>
+      </div>
     </div>
 
     <div class="form-button">

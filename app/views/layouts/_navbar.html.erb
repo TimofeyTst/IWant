@@ -1,14 +1,17 @@
 <header>
       <nav class="navbar sticky">
         <div class="nav-brand">
-          <a href="/"><%= image_tag('logo.png') %></a>
+          <%= link_to (image_tag('logo.png')), root_path %></a>
         </div>
         <div class="nav-pages">
           <div>
-            <%= link_to 'Lines', posts_path, class: 'nav-link' %>
+            <%= link_to 'Search', search_path, class: 'nav-link' %>
           </div>
           <div>
-            <%= link_to 'Interest', '/', class: 'nav-link' %>
+            <%= link_to 'Lines', root_path, class: 'nav-link' %>
+          </div>
+          <div>
+            <%= link_to 'Interest', home_show_path, class: 'nav-link' %>
           </div>
           <div>
             <%= link_to 'Add post', new_post_path, class: 'nav-link' %>

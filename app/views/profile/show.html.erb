@@ -13,14 +13,4 @@
 </div>
 <%= button_to "Log out", destroy_user_session_path, class: 'button', method: :delete %>
 
-<div class="posts">
-    <% @posts_by_three.each do |line| %>
-        <div class="posts_line">
-            <% line.each do |post| %>
-                <div class="post">
-                    <%= link_to (image_tag post.picture, class: "post_picture"), post %>
-                </div>
-            <% end %>
-        </div>        
-    <% end %>
-</div>
+<%= render 'post', posts_by_three: @posts_by_three%>

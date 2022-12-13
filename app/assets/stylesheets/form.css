@@ -119,6 +119,10 @@
     padding: 4px 8px;
 }
 /* User Edit */
+.container .user_form .row {
+    display: flex;
+    flex-direction: row;
+}
 .container .user_form .field label {
     display: block;
     font-size: 18px;
@@ -176,7 +180,7 @@
 }
 .book_form .book .left {
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-between;
     flex-direction: column;
 }
 .book_form .book .left .big_text{
@@ -185,13 +189,15 @@
     justify-content: space-between;
     flex: 1 0 auto;
 }
-.book_form .book label{
+.book_form .book label,
+.uni_form label{
     display: block;
     font-size: 18px;
     color: var(--back-text-color);
 }
 .book_form .book input, 
-.book_form .book textarea {
+.book_form .book textarea,
+.uni_form input {
     background: transparent;
     border: none;
     border-bottom: 1px solid var(--back-vsp-color);
@@ -217,7 +223,8 @@
     align-items: center;
 }
 .book_form .button,
-.comment_form .button{
+.comment_form .button,
+.uni_form .button{
     border: none;
     box-shadow: none;
     border-radius: 6px;
@@ -230,11 +237,28 @@
     color: var(--back-vsp-color);
     background: var(--back-button-color);
 }
-.comment_form .button{
+.comment_form .button,
+.uni_form .button{
     font-size: 14px;
 }
 .book_form .button:hover,
-.comment_form .button:hover{
+.comment_form .button:hover,
+.uni_form .button:hover{
     color: var(--back-light-color);
     background: var(--back-vsp-color);
+}
+.uni_form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.uni_form .field input{
+    width: 15vw;
+}
+.uni_form .field input[type="search"]{
+    text-align: center;
+}
+.uni_form .field .button{
+    width: inherit;
+    flex: 0.2 0 auto;
 }

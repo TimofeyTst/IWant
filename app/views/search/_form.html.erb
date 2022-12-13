@@ -1,0 +1,13 @@
+<div class="uni_form">
+    <%= search_form_for @q, url: search_path, method: :get do |f| %>
+    <div class="field">
+        <%= f.search_field :tags_i_cont_any, placeholder: "Posts by tag...", class: '' %>
+        <%= f.submit "Find", class: 'button' %>
+    </div>
+    <% end %>
+</div>
+<% if params[:q] %>
+    <h1><%= pluralize(@posts.count, 'Result') %> for tag #<%= params[:q][:tags_i_cont_any] %></h1>
+<% else %>
+    <h1><%= pluralize(@posts.count, 'Result') %></h1>
+<% end %>
