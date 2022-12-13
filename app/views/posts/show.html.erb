@@ -1,7 +1,7 @@
 <%= render @post %>
 
 <div class="container comments">
-    <%= render 'comments/form', post: @post %>
+    <%= render 'comments/form', post: @post, comment: @post.comments.build %>
     
     <% @comments.each do |comment| %>
         <%= render 'comments/comment', post: @post, comment: comment %>

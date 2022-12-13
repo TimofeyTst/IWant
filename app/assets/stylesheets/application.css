@@ -174,3 +174,6 @@ footer .navbar .vertical-line{
     box-sizing: border-box;
     flex-direction: column;
 }
+.d-none {
+    display: none;
+}

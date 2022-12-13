@@ -1,5 +1,6 @@
 <div class="comment" id="comment_<%= comment.id %>">
     <div class="left">
+        
         <% if comment.user.avatar.attached? %>
             <div class="avatar">
                 <%= link_to (image_tag comment.user.avatar, class: "avatar-link"), profile_path(comment.user)%>
@@ -15,7 +16,7 @@
         <% end %>
     </div>
 
-    <div class="right">
+<div class="right">
         <div class="field">
             <div>
                 <%= (comment.user.username) %>

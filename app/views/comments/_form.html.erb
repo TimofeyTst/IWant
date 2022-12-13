@@ -1,5 +1,15 @@
-<%= form_with(model: [post, post.comments.build]) do |f| %>
+<h2>Comments</h2>
+<%= form_with(model: [post, comment]) do |f| %>
+
+<% frame_id = dom_id(comment, "comment_turbo_frame") %>
     <div class="comment_form">
+        <div class="avatar field">
+              <% if current_user.avatar.attached? %>
+                  <%= image_tag current_user.avatar, class: "avatar-link" %>
+              <% else %>
+                  <%= image_tag 'default_avatar.jpg', class: "avatar-link" %>
+              <% end %>
+        </div>
         <div class="field">
             <%= f.text_area :body %>
         </div>
@@ -7,4 +17,5 @@
             <%= f.submit "Reply", class: "button" %>
         </div>
     </div>
+
 <% end %>

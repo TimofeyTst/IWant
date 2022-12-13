@@ -19,7 +19,7 @@
     margin: 0px 5px;
 }
 .comment_form .field textarea {
-    width: 46vw;
+    width: 42vw;
 }
 .comments .comment{
     flex-direction: row;
@@ -37,7 +37,8 @@
     flex: 0.95 0 auto;
 }
 .comments .comment .right p{
-    width: 46vw;
+    font-size: 16px;
+    width: 42vw;
     word-break: break-all; 
 }
 .comments .comment .field {

@@ -3,14 +3,14 @@
       <div class="left">
         <div class="container smart">
           <div class="avatar">
-              <% if @post.user.avatar.attached? %>
-                  <%= link_to (image_tag @post.user.avatar, class: "avatar-mini"), profile_path(@post.user) %>
+              <% if post.user.avatar.attached? %>
+                  <%= link_to (image_tag @post.user.avatar, class: "avatar-mini"), profile_path(post.user) %>
               <% else %>
-                  <%= image_tag 'default_avatar.jpg', class: "avatar-mini" %>
+                  <%= link_to (image_tag 'default_avatar.jpg', class: "avatar-mini"), profile_path(post.user) %>
               <% end %>
           </div>
           <div class="name">
-              <%= @post.user.username.capitalize %> book  
+              <%= post.user.username.capitalize %> book  
           </div>
         </div>
         
