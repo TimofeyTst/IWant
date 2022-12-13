@@ -2,19 +2,8 @@ class ProfileController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
   def show
-    @posts_by_three = []
     posts = @user.posts
-
-    if posts.length < 3
-      posts.each_slice(1) { |column| @posts_by_three.push(column) }
-    elsif (posts.length % 3).zero?
-      posts.each_slice(posts.length / 3) { |column| @posts_by_three.push(column) }
-    else
-      posts.each_slice(posts.length / 3) { |column| @posts_by_three.push(column) }
-      @posts_by_three.last.each_with_index { |el, index| @posts_by_three[index].push(el) }
-      @posts_by_three.pop
-    end
-    @posts_by_three
+    @posts_by_three = arr_by_three_columns(posts)
   end
 
   def destroy
