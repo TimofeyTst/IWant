@@ -1,21 +1,11 @@
-<% if @user == current_user %>
-    <div class="profile_settings" id="settings" onclick="toggle_open(this)">
-      <div class="main">
-        <div class="round"></div>
-        <div class="round"></div>
-        <div class="round"></div>
-      </div>
-      <div class="menu">
-        <div class="round-line">
-          <%= link_to "Edit profile", edit_user_registration_path %>
-        </div>
-        <div class="round-line">
-          <%= button_to "Log out", destroy_user_session_path, method: :delete %>
-        </div>
-      </div>
-    </div>
-<% end %>
+<%= render 'menu', user: @user%>
 
 <%= render 'avatar', user: @user%>
+<%= render 'profile/follower_count', user: @user %>
+<div><%= @user.followees.count %> following</div>
 
-<%= render 'post', posts_by_three: @posts_by_three%>
+<% if user_signed_in? && (current_user != @user) %>
+  <%= render 'profile/follow_button', user: @user %>
+<% end %>
+
+<%= render 'posts/posts', posts_by_three: @posts_by_three%>

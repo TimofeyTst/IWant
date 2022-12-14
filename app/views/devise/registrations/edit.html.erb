@@ -58,7 +58,7 @@
   <% end %>
   <div class="line">
     <div>Don`t emplore your avatar photo?</div>
-    <%= button_to "Delete avatar picture", profile_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, class: 'button delete' %>
+    <%= button_to "Delete avatar picture", profile_avatar_path, data: { confirm: "Are you sure?" }, method: :delete, class: 'button delete' %>
   </div>  
   <div class="line">
     <div>Want to leave us?</div>

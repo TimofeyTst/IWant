@@ -1,13 +1,3 @@
 <h1 class="header-text">Tasty</h1>
 
-<div class="posts">
-    <% @posts_by_three.each do |column| %>
-        <div class="posts_column">
-            <% column.each do |post| %>
-                <div class="post">
-                    <%= link_to (image_tag post.picture, class: "post_picture"), post %>
-                </div>
-            <% end %>
-        </div>        
-    <% end %>
-</div>
+<%= render 'posts', posts_by_three: @posts_by_three %>
