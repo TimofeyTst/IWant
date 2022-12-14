@@ -15,10 +15,12 @@
         </div>
         
         <div class="big_text">
+        <% unless post.description.empty? %>
           <div class="field">
-            <p>Description:</p>
+            <p>Writing:</p>
             <p><%= post.description %></p>
           </div>
+        <% end %>
 
           <div class="field">
             <p>Tags #</p>

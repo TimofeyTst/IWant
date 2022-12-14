@@ -1,11 +1,13 @@
 <%= render 'menu', user: @user%>
 
-<%= render 'avatar', user: @user%>
-<%= render 'profile/follower_count', user: @user %>
-<div><%= @user.followees.count %> following</div>
+<div class="conatiner">
+  <%= render 'avatar', user: @user%>
+  <%= render 'profile/follower_count', user: @user %>
 
-<% if user_signed_in? && (current_user != @user) %>
-  <%= render 'profile/follow_button', user: @user %>
-<% end %>
-
+  <% if user_signed_in? && (current_user != @user) %>
+  <div class="line center">
+    <%= render 'profile/follow_button', user: @user %>
+  </div>
+  <% end %>
+</div>
 <%= render 'posts/posts', posts_by_three: @posts_by_three%>

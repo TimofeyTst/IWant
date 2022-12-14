@@ -1,0 +1,19 @@
+<div class="users">
+    <% users_by_three.each do |column| %>
+        <div class="users_column">
+            <% column.each do |user| %>
+                <div class="user">
+                    <%= render 'search/avatar', user: user %>
+                    <div class="text">
+                        <div class="name">
+                            <%= user.username %>  
+                        </div>   
+                        <div class="random-tags">
+                            <%= user.posts.sample.tags&.truncate_words(25) %>  
+                        </div>                   
+                    </div>                   
+                </div>
+            <% end %>
+        </div>        
+    <% end %>
+</div>

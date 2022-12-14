@@ -1,4 +1,8 @@
     
 <%= turbo_frame_tag "#{dom_id(comment)} public_likes" do %>
-    <%= pluralize(comment.likes.count, "Like") %>
+    <% if comment.likes.any? %>
+        <div class="counter">
+            <%= pluralize(comment.likes.count, "reaction") %>
+        </div>    
+    <% end %>
 <% end %>

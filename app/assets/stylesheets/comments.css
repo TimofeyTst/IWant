@@ -44,8 +44,29 @@
 .comments .comment .field {
     display: flex;
 }
-.comments .comment .right .field * {
+.comments .comment .right .field .name {
     margin: 0px 10px 5px 0px;
+    font-size: 16px;
+}
+.comments .comment .likes {
+    margin: 0px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.comments .comment .likes .like.button{
+    margin-right: 3px;
+}
+.comments .comment .likes .like.button:hover{
+    background: transparent;
+}
+.comments .comment .likes .counter{
+    display: flex;
+    justify-content: center;
+    font-size: 16px;
+}
+.comments .comment .likes .like img{
+    height: 18px;
 }
 .comments .comment .left * {
     margin-bottom: 2px;

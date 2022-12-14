@@ -9,6 +9,14 @@ class ProfileController < ApplicationController
     @posts_by_three = arr_by_three_columns(posts)
   end
 
+  def followers
+    @users_by_three = arr_by_three_columns(current_user.followers)
+  end
+
+  def followees
+    @users_by_three = arr_by_three_columns(current_user.followees)
+  end
+
   def destroy_avatar
     current_user.avatar.destroy
 

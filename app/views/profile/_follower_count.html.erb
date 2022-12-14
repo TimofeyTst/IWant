@@ -1,6 +1,7 @@
-<%= turbo_frame_tag "#{@user.id}-follower-count" do %>
-    <div>
-        <%= pluralize(user.followers.count, "follower") %>
-    </div>
-    
+<%= turbo_frame_tag "#{user.id}-follower-count" do %>
+  <div class="line center">
+        <%= link_to pluralize(user.followers.count, "follower"), profile_followers_path(user), class: 'purple-link' %>
+    <div class="round-between"></div>
+        <%= link_to "#{user.followees.count} following", profile_followees_path(user), class: 'purple-link' %> 
+  </div>
 <% end %>

@@ -18,20 +18,21 @@
 
 <div class="right">
         <div class="field">
-            <div>
+            <div class="name">
                 <%= (comment.user.username) %>
             </div>
             <div class="date">
                 <%= (comment.created_at).day%>.<%= (comment.created_at).month %>
             </div>
+            <div class="likes">
+                <% if user_signed_in? %>
+                  <%= render 'likes/private_button', post: post, comment: comment, like_status: like_status %>
+                <% end %>
+                  <%= render 'likes/like_count', comment: comment %>
+            </div>
         </div>
         <div class="field">
             <p><%= comment.body %></p>
-            <% if user_signed_in? %>
-                <%= render 'likes/private_button', post: post, comment: comment, like_status: like_status %>
-            <% else %>
-                <%= render 'likes/like_count', comment: comment %>
-            <% end %>
         </div>
     </div>
 </div>
