@@ -22,14 +22,7 @@ class ProfileController < ApplicationController
     Relationship.create_or_find_by(follower_id: current_user.id, followee_id: @user.id)
     respond_to do |format|
       format.turbo_stream do
-        render turbo_stream: [
-          turbo_stream.replace(dom_id(@user),
-                               partial: 'profile/follow_button',
-                               locals: { user: @user }),
-          turbo_stream.update("#{@user.id}-follower-count",
-                              partial: 'profile/follower_count',
-                              locals: { user: @user })
-        ]
+        render turbo_stream: private_stream
       end
     end
   end
@@ -38,19 +31,23 @@ class ProfileController < ApplicationController
     current_user.followed_users.where(follower_id: current_user.id, followee_id: @user.id).destroy_all
     respond_to do |format|
       format.turbo_stream do
-        render turbo_stream: [
-          turbo_stream.replace(dom_id(@user),
-                               partial: 'profile/follow_button',
-                               locals: { user: @user }),
-          turbo_stream.update("#{@user.id}-follower-count",
-                              partial: 'profile/follower_count',
-                              locals: { user: @user })
-        ]
+        render turbo_stream: private_stream
       end
     end
   end
 
   private
+
+  def private_stream
+    [
+      turbo_stream.replace(dom_id(@user),
+                           partial: 'profile/follow_button',
+                           locals: { user: @user }),
+      turbo_stream.update("#{@user.id}-follower-count",
+                          partial: 'profile/follower_count',
+                          locals: { user: @user })
+    ]
+  end
 
   def set_user
     @user = User.find(params[:id])
