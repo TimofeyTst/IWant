@@ -27,6 +27,11 @@
         </div>
         <div class="field">
             <p><%= comment.body %></p>
+            <% if user_signed_in? %>
+                <%= render 'likes/private_button', post: post, comment: comment, like_status: like_status %>
+            <% else %>
+                <%= render 'likes/like_count', comment: comment %>
+            <% end %>
         </div>
     </div>
 </div>

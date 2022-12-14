@@ -1,5 +1,7 @@
 class ProfileController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
+  skip_before_action :authenticate_user!, only: :show
+
 
   def show
     posts = @user.posts

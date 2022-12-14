@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get 'home/show'
   get 'search', to: 'search#index'
 
+  # like_comment_path(comment)
+  post 'like/id', to: "comments#like", as: "like_comment"
+
   resources :profile, only: %i[show destroy]
   devise_for :users
   resources :posts do

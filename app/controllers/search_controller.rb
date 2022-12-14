@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
   def index
     @q = Post.ransack(params[:q])
 

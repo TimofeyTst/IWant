@@ -1,12 +1,20 @@
 <%= render @post %>
 
 <div class="container comments">
-    <%= render 'comments/form', post: @post, comment: @post.comments.build %>
-    
-    <% @comments.each do |comment| %>
-        <%= render 'comments/comment', post: @post, comment: comment %>
+    <% if user_signed_in? %>
+      <%= render 'comments/form', post: @post, comment: @post.comments.build %>
+
+      <% @comments.each do |comment| %>
+          <%= render 'comments/comment', post: @post, comment: comment, like_status: current_user.liked?(comment) %>
+      <% end %>
+    <% else %>
+      <% @comments.each do |comment| %>
+          <%= render 'comments/comment', post: @post, comment: comment %>
+      <% end %>
     <% end %>
 </div>
+
+<%= turbo_stream_from "public_likes" %>
 
 <% if @post.user == current_user %>
 <div class="line">

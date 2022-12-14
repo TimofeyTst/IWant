@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[show edit update destroy]
   before_action :have_permission?, only: %i[edit update destroy]
+  skip_before_action :authenticate_user!, only: %i[show index]
 
   # GET /posts or /posts.json
   def index
@@ -20,7 +21,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
-    redirect_to post_url(@post), notice: 'Don`t have permission' unless have_permission? 
+    redirect_to post_url(@post), notice: 'Don`t have permission' unless have_permission?
   end
 
   # POST /posts or /posts.json

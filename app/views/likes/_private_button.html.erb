@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "#{dom_id(comment)} private_likes" do %>
+    <% like_text = current_user.liked?(comment) ? "Unlike" : "Like" %>
+    <div>
+        <%= link_to like_text, like_comment_path(post_id: post.id, id: comment.id), data: {turbo_method: "post"}, class:"like button" %>
+    </div>
+    <%= render 'likes/like_count', comment: comment %>
+<% end %>    
