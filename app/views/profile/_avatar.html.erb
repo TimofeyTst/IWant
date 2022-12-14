@@ -1,16 +1,16 @@
-<% if user.avatar.attached? %>
+<div class="container">
     <div class="avatar">
-        <%= image_tag user.avatar, class: "avatar-big"%>
+    <% if user.avatar.attached? %>
+            <%= image_tag user.avatar, class: "avatar-big"%>
+    <% else %>
+            <% if user == current_user %>
+                <%= link_to (image_tag 'default_avatar.jpg', class: "avatar-big"), edit_user_registration_path %>
+            <% else %>
+                <%= image_tag 'default_avatar.jpg', class: "avatar-big" %>
+            <% end %>
+    <% end %>
     </div>
-<% else %>
-    <div class="avatar">
-        <% if user == current_user %>
-            <%= link_to (image_tag 'default_avatar.jpg', class: "avatar-big"), edit_user_registration_path %>
-        <% else %>
-            <%= image_tag 'default_avatar.jpg', class: "avatar-big" %>
-        <% end %>
-    </div>
-<% end %>
     <div class="name">
         <%= user.username.capitalize %>  
     </div>
+</div>

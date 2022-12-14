@@ -80,36 +80,6 @@ footer .navbar .vertical-line{
 .container.smart *{
     margin: 5px;
 }
-.profile_settings {
-    content: ' ';
-    position: absolute;
-    top: 10px;
-    right: 1.95vw;  
-    transition: 0.5s;  
-    display: flex;
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--back-color);
-}
-.profile_settings:hover {
-    cursor: pointer;
-    background: var(--back-vsp-color);
-}
-.profile_settings:hover > .round {
-    background: var(--link-hover-color);
-}
-.profile_settings .round{
-    content: ' ';
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    margin: 1px;
-    background-color: var(--link-color);
-}
 .avatar {
     display: flex;
     justify-content: space-between;

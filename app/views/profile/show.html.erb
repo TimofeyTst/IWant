@@ -1,16 +1,21 @@
 <% if @user == current_user %>
-    <div class="profile_settings">
+    <div class="profile_settings" id="settings" onclick="toggle_open(this)">
+      <div class="main">
         <div class="round"></div>
         <div class="round"></div>
         <div class="round"></div>
+      </div>
+      <div class="menu">
+        <div class="round-line">
+          <%= link_to "Edit profile", edit_user_registration_path %>
+        </div>
+        <div class="round-line">
+          <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+        </div>
+      </div>
     </div>
 <% end %>
 
 <%= render 'avatar', user: @user%>
-
-<div class="line">
-  <%= link_to "Edit", edit_user_registration_path, class: 'button' %>
-</div>
-<%= button_to "Log out", destroy_user_session_path, class: 'button', method: :delete %>
 
 <%= render 'post', posts_by_three: @posts_by_three%>
