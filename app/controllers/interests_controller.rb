@@ -30,8 +30,8 @@ class InterestsController < ApplicationController
   private
 
   def private_stream
-    turbo_stream.replace(helpers.dom_id(@post),
-                         partial: 'posts/post',
+    turbo_stream.replace("save_post_#{@post.id}",
+                         partial: 'interests/save_button',
                          locals: { post: @post })
   end
 

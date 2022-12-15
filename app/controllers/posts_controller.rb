@@ -21,6 +21,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    @image_src = @post.picture
     redirect_to post_url(@post), notice: 'Don`t have permission' unless have_permission?
   end
 

@@ -1,0 +1,11 @@
+<div class="user">
+    <%= render 'search/avatar', user: user %>
+    <div class="text">
+        <div class="name">
+            <%= user.username %>  
+        </div>   
+        <div class="random-tags">
+            <%= user.posts.sample&.tags&.truncate_words(8) %>  
+        </div>                   
+    </div>                   
+</div>

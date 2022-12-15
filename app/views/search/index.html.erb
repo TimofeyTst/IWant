@@ -1,4 +1,19 @@
 <%= render 'search/form' %>
-<%= render 'posts/posts', posts_by_three: @posts_by_three%>
+
+<% if params[:only] == "users" %>
+    <h1><%= pluralize(@users.count, 'Result') %> <%= "for username '#{params[:q][:tags_i_cont_any]}'" if params[:q]%></h1>
+    <%= render 'search/blocks', users_by_three: @users_by_three %>
+<% elsif params[:only] == "posts" %>
+    
+    <h1><%= pluralize(@posts.count, 'Result') %> <%= "for tag ##{params[:q][:tags_i_cont_any]}" if params[:q] %></h1>
+    <%= render 'posts/blocks', posts_by_three: @posts_by_three %>
+
+<% else %>
+    <h1><%= pluralize(@posts.count + @users.count, 'Result') %> <%= "for tag or username '#{params[:q][:tags_i_cont_any]}'" if params[:q] %></h1>
+    <%= render 'search/blocks', blocks_by_three: @blocks_by_three %>
+<% end %>
+
+
+
 
 

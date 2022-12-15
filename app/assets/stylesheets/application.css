@@ -17,7 +17,7 @@
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: 1;
+    z-index: 5;
     background: var(--main-color);
 }
 .navbar {
@@ -113,65 +113,7 @@ footer .navbar .vertical-line{
     color: #fff;
     background: #e90000;
 }
-/* Posts */
-.post_picture,
-.post_picture_big {
-    /* height: 24vw; */
-    box-shadow:  0 16px 25px rgba(0,0,0,0.1);
-    width: 18vw;
-    margin: 8px;
-    border-radius: 18px;
-    transition: 0.5s;
-}
-.post_picture_big {
-    width: 26vw;
-}
-.post_picture:hover,
-.post_picture_big:hover {
-    transform: scale(1.1);
-}
-.book_form .post_picture_big:hover {
-    transform: translate(6%, 3%) scale(1.05);
-}
-/* Posts and Users */
-.posts, .users {
-    display: flex;
-    justify-content: flex-start;
-}
-.posts_column, .users_column {
-    display: flex;
-    justify-content: flex-start;
-    align-items: stretch;
-    box-sizing: border-box;
-    flex-direction: column;
-}
-.user {
-    width: 18vw;
-    height: 6vw;
-    margin: 8px;
-    padding: 16px;
 
-    border-radius: 18px;
-    transition: 0.5s;
-
-    display: flex;
-    justify-content: flex-start;
-    background: var(--back-color);
-}
-.user .avatar-mini{
-    width: 5vw;
-    height: 5vw;
-}
-.user .text{
-    padding: 6px 16px;
-    font-size: 1vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-.user .text .name{
-    font-size: 1.2vw;
-}
 .d-none {
     display: none;
 }

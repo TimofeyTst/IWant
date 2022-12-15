@@ -215,6 +215,21 @@
 
     color: var(--back-light-color);
 }
+.uni_form .radios {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.uni_form .radios .field{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.uni_form .radios .field input{
+    width: 30px;
+    margin: 0px;
+}
 .book_form .book input[type="file"]{
     color: transparent;
     border-bottom: none;

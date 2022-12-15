@@ -30,7 +30,7 @@
     align-items: center;
     background: var(--back-color);
 }
-.profile_settings .round-line{
+.profile_settings .round-line {
     height: 30px;
     width: 100px;
     margin: 6px 0px;
@@ -84,4 +84,78 @@
 .profile_settings.open .like-text:hover {
     color: var(--link-hover-color);
     background: var(--like-hover-color);
+}
+/* Settings in post */
+.post .down {
+  display: flex;
+  justify-content: space-between;  
+}
+.post .down .button {
+    z-index: 1;
+    height: 1.5vw;
+    width: 2vw;
+    border-radius: 1vw;
+    transition: 0.5s;  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--back-color);
+}
+.post .down .button .round{
+    height: 4px;
+    width: 4px;
+    margin: 1px;
+    border-radius: 50%;
+    transition: 0.5s;  
+    background: var(--link-color);
+}
+.post .down .button:hover{
+    cursor: pointer;
+    background: var(--back-vsp-color);
+}
+.post .down .button:hover .round{
+    background: var(--link-hover-color);
+}
+/* Transforming */
+.post .down .settings .menu{
+    bottom: 0px;
+    left: 0px;
+    width: 18vw;
+    border-radius: 18px;
+    margin: 8px;
+    height: 150px;
+
+    transition: 0.5s;
+    position: absolute;
+    z-index: -2;
+
+    opacity: 0;
+    visibility: hidden;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    transform: translate(0%, 10%);
+}
+/* Buttons in it */
+.post .down .settings.open .menu{
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    background: var(--back-color);
+    transform: translate(0%, -14%);
+}
+.menu-button {
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    width: 100px;
+    transition: 0.5s;
+}
+.menu-button:hover {
+    color: var(--link-hover-color);
+    background: var(--back-vsp-color);
 }

@@ -25,7 +25,8 @@
 
       <div class="right">
         <div class="field">
-          <%= image_tag 'default_preview.png', id: 'blah', alt: "Preview", class: 'post_picture_big' %>
+          <% @image_src ||= 'default_preview.png' %>
+          <%= image_tag @image_src, id: 'blah', alt: "Preview", class: 'post_picture_big' %>
         </div>
       </div>
     </div>

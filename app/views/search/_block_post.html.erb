@@ -1,0 +1,22 @@
+<div class="post">
+    <div>
+        <%= link_to (image_tag post.picture, class: "post_picture"), post %>
+    </div>
+    <div class="down">
+        <div class="text">
+            <%= post.description&.truncate_words(4) %>
+        </div>
+        <div class="settings" onclick="toggle_open(this)">
+            <div class="button">
+                <div class="round"></div>
+                <div class="round"></div>
+                <div class="round"></div>
+            </div>
+            <div class="menu">
+                <%= link_to "Edit post", edit_post_path(post), class: 'menu-button' if post.user == current_user %>
+                <%= link_to 'Open post', post, class: 'menu-button' %>
+                <%= render 'interests/save_button', post: post if user_signed_in? %>
+            </div>
+        </div>
+    </div>
+</div>

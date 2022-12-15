@@ -1,0 +1,15 @@
+<div class="blocks">
+    <% blocks_by_three.each do |column| %>
+        <div class="block_column">
+            <% column.each do |block| %>
+
+                <% if block.instance_of?(User)%>
+                    <%= render 'search/block_user', user: block %>
+                <% else %>
+                    <%= render 'search/block_post', post: block %>
+                <% end %>
+
+            <% end %>
+        </div>        
+    <% end %>
+</div>
