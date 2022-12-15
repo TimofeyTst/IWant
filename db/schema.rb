@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_14_140148) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_15_100919) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -37,6 +37,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_140148) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "collection_saved_posts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_collection_saved_posts_on_post_id"
+    t.index ["user_id"], name: "index_collection_saved_posts_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -102,6 +111,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_14_140148) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "collection_saved_posts", "posts"
+  add_foreign_key "collection_saved_posts", "users"
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
   add_foreign_key "likeables", "comments"

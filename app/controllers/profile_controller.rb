@@ -1,7 +1,7 @@
 class ProfileController < ApplicationController
   include ProfileHelper
 
-  before_action :set_user, only: %i[show follow unfollow]
+  before_action :set_user, only: %i[show follow unfollow followers followees]
   skip_before_action :authenticate_user!, only: :show
 
   def show
@@ -10,11 +10,11 @@ class ProfileController < ApplicationController
   end
 
   def followers
-    @users_by_three = arr_by_three_columns(current_user.followers)
+    @users_by_three = arr_by_three_columns(@user.followers)
   end
 
   def followees
-    @users_by_three = arr_by_three_columns(current_user.followees)
+    @users_by_three = arr_by_three_columns(@user.followees)
   end
 
   def destroy_avatar

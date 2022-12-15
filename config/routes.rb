@@ -17,6 +17,10 @@ Rails.application.routes.draw do
   get 'profile/:id/followers', to: 'profile#followers', as: 'profile_followers'
   get 'profile/:id/followees', to: 'profile#followees', as: 'profile_followees'
 
+  get 'interests/saved'
+  post 'interests/save'
+  delete 'interests/unsave'
+
   devise_for :users
 
   resources :posts do

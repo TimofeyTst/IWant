@@ -15,14 +15,15 @@
         </div>
         
         <div class="big_text">
-        <% unless post.description.empty? %>
           <div class="field">
-            <p>Writing:</p>
-            <p><%= post.description %></p>
+            <% unless post.description.empty? %>
+              <p>Writing:</p>
+              <p><%= post.description %></p>
+            <% end %>
           </div>
-        <% end %>
 
           <div class="field">
+          <%= render 'interests/save_button', post: post if user_signed_in? %>
             <p>Tags #</p>
             <p><%= post.tags %></p>
           </div>

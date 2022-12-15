@@ -22,6 +22,8 @@ html {
     --link-hover-color: #fff;
 
     --colored-text: #8e12be;
+    --like-hover-color: #c4331a;
+    --like-pressed-text-color: #c4331a;
     --avatar-border-color: #7600a5;
 }
 

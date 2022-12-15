@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable, :rememberable
   devise :database_authenticatable, :registerable,
          :recoverable, :validatable, :confirmable,
-         :lockable, :timeoutable, :trackable
+         :lockable, :trackable
 
   has_one_attached :avatar
   has_many :posts, dependent: :destroy
@@ -33,6 +33,10 @@ class User < ApplicationRecord
   has_many :followers,
            through: :following_users,
            dependent: :destroy
+
+  has_many :CollectionSavedPost, dependent: :destroy
+
+  has_many :saved_posts, source: :post, through: :CollectionSavedPost
 
   validates :email,
             presence: true,

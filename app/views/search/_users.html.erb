@@ -9,7 +9,7 @@
                             <%= user.username %>  
                         </div>   
                         <div class="random-tags">
-                            <%= user.posts.sample.tags&.truncate_words(25) %>  
+                            <%= user.posts.sample&.tags&.truncate_words(25) %>  
                         </div>                   
                     </div>                   
                 </div>

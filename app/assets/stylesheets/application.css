@@ -163,7 +163,7 @@ footer .navbar .vertical-line{
     height: 5vw;
 }
 .user .text{
-    padding: 6px 12px;
+    padding: 6px 16px;
     font-size: 1vw;
     display: flex;
     flex-direction: column;
@@ -187,9 +187,25 @@ footer .navbar .vertical-line{
     margin: 6px;
     border-radius: 16px;
     transition: 0.5s;
-
 }
 .purple-link:hover {
     color: var(--link-hover-color);
     background: var(--colored-text);
+}
+.like-text {
+    transition: 0.5s;
+}
+.like-text:hover {
+    color: var(--link-hover-color);
+    background: var(--like-hover-color);
+}
+.like-text.pressed {
+    transition: 0.5s;
+    color: var(--link-hover-color);
+    background: var(--like-hover-color);
+}
+.interests.buttons .save{
+    border-radius: 16px;
+    height: 30px;
+    width: 100px;
 }
