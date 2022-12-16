@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root 'posts#index'
-  get 'home/show'
 
   # GET search/index
   get 'search', to: 'search#index'
@@ -18,6 +17,7 @@ Rails.application.routes.draw do
   get 'profile/:id/followees', to: 'profile#followees', as: 'profile_followees'
   put 'profile/:id/theme', to: 'profile#theme', as: 'profile_theme'
 
+  get 'albums', to: 'interests#show', as: 'albums'
   get 'interests/saved'
   post 'interests/save'
   delete 'interests/unsave'
