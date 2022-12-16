@@ -5,19 +5,19 @@
         </div>
         <div class="nav-pages">
           <div>
-            <%= link_to 'Search', search_path, class: 'nav-link' %>
+            <%= link_to inline_svg_tag("home.svg", class: 'svg-picture'), root_path, class: 'nav-link' %>
           </div>
           <div>
-            <%= link_to 'Lines', root_path, class: 'nav-link' %>
+            <%= link_to inline_svg_tag("search.svg", class: 'svg-picture'), search_path, class: 'nav-link' %>
           </div>
           <div>
-            <%= link_to 'Interest', home_show_path, class: 'nav-link' %>
+            <%= link_to inline_svg_tag("albums.svg", class: 'svg-picture'), home_show_path, class: 'nav-link' %>
           </div>
           <div>
-            <%= link_to 'Add post', new_post_path, class: 'nav-link' %>
+            <%= link_to inline_svg_tag("add_post.svg", class: 'svg-picture'), new_post_path, class: 'nav-link' %>
           </div>
           <div>
-            <%= link_to 'Messages', '/', class: 'nav-link' %>
+            <%= link_to inline_svg_tag("chats.svg", class: 'svg-picture'), '/', class: 'nav-link' %>
           </div>
           <% if user_signed_in? %>
             <% if current_user.avatar.attached? %>

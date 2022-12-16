@@ -74,9 +74,9 @@
     border-radius: 24px;
     background: var(--back-color);
 }
-img.theme_button{
-    width: 20px;
-    height: 20px;
+.svg-picture.theme-button{
+    width: 25px;
+    height: 25px;
 }
 .profile_settings.open .round-line{
     transform: translateX(-55%);

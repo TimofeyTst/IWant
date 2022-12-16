@@ -30,6 +30,9 @@
 .navbar .nav-brand img {
     height: 45px;
 }
+.navbar .nav-pages .nav-link .svg-picture{
+    height: 35px;
+}
 .navbar .nav-pages{
     display: flex;
     justify-content: space-around;

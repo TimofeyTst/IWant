@@ -1,4 +1,6 @@
-
+.field p{
+    word-break: break-all;
+}
 .container .form,
 .container .user_form {
     margin: 30px 0px;
@@ -257,6 +259,9 @@
     cursor: pointer;
     color: var(--back-vsp-color);
     background: var(--back-button-color);
+}
+.comment_form textarea {
+    height: 40px;
 }
 .comment_form .button,
 .uni_form .button{

@@ -3,7 +3,6 @@ html {
     --main-color: #080808;
     --back-color: #151515;
     --vsp-color: #8f8c8f;
-    
 
     --text-color: #b1b1b1;
     --back-header-color: #fff;
@@ -55,7 +54,7 @@ html[data-color-mode="light"] {
         --like-pressed-text-color: #fff;
         --avatar-border-color: #7600a5;
     }
-    
+
 html[data-color-mode="dark"] {
         --main-color: #080808;
         --back-color: #151515;

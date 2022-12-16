@@ -84,7 +84,7 @@ input[type="file"]{
 }
 textarea {
     resize: none;
-    height: 20px;
+    height: 15vw;
     outline: none;
     border: none;
     border-radius: 6px;
