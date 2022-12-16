@@ -50,7 +50,7 @@ button {
     font-synthesis: 16px;
 
     cursor: pointer;
-    color: var(--back-vsp-color);
+    color: var(--link-color);
     background: var(--back-button-color);
 }
 button:hover{

@@ -1,3 +1,4 @@
+
 html {
     --main-color: #080808;
     --back-color: #151515;
@@ -26,6 +27,63 @@ html {
     --like-pressed-text-color: #c4331a;
     --avatar-border-color: #7600a5;
 }
+
+html[data-color-mode="light"] {
+        --main-color: #fff;
+        --vsp-color: #000000;
+        
+    
+        --text-color: #000000;
+        --back-header-color: #000000;
+        --back-light-color: #000000;
+        --back-span-color: #00b0ff;
+        --back-text-color: #161111;
+    
+        --back-color: #e6e9e9;
+        --back-vsp-color: #c2c2c2;
+        --back-button-color: #2b2a2a;
+    
+        --light-text-color: #000000;
+        --error-text-color: rgb(248, 86, 221);
+        --back-error-color: #3a383a;
+    
+        --link-color: #585858;
+        --link-hover-color: #000000;
+    
+        --colored-text: #ff2eee;
+        --like-hover-color: #c4331a;
+        --like-pressed-text-color: #fff;
+        --avatar-border-color: #7600a5;
+    }
+    
+html[data-color-mode="dark"] {
+        --main-color: #080808;
+        --back-color: #151515;
+        --vsp-color: #8f8c8f;
+        
+    
+        --text-color: #b1b1b1;
+        --back-header-color: #fff;
+        --back-light-color: #fff;
+        --back-span-color: #00b0ff;
+        --back-text-color: #b1b1b1;
+    
+        --back-color: #151515;
+        --back-vsp-color: #585858;
+        --back-button-color: #2b2a2a;
+    
+        --light-text-color: #fff;
+        --error-text-color: rgb(248, 86, 221);
+        --back-error-color: #3a383a;
+    
+        --link-color: #585858;
+        --link-hover-color: #fff;
+    
+        --colored-text: #8e12be;
+        --like-hover-color: #c4331a;
+        --like-pressed-text-color: #fff;
+        --avatar-border-color: #7600a5;
+    }
 
 .error-text {
     color: var(--error-text-color);

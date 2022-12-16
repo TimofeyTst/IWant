@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_15_100919) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_16_104436) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -76,6 +76,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_15_100919) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "preferences", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.string "category", null: false
+    t.string "name", null: false
+    t.integer "value", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category", "name", "value"], name: "index_preferences_on_category_and_name_and_value"
+    t.index ["user_id", "category"], name: "index_preferences_on_user_id_and_category"
+    t.index ["user_id"], name: "index_preferences_on_user_id"
+  end
+
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followee_id"
@@ -103,6 +115,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_15_100919) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
+    t.integer "theme", default: 1
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

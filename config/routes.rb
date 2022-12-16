@@ -16,10 +16,12 @@ Rails.application.routes.draw do
   delete 'profile/unfollow', to: 'profile#unfollow'
   get 'profile/:id/followers', to: 'profile#followers', as: 'profile_followers'
   get 'profile/:id/followees', to: 'profile#followees', as: 'profile_followees'
+  put 'profile/:id/theme', to: 'profile#theme', as: 'profile_theme'
 
   get 'interests/saved'
   post 'interests/save'
   delete 'interests/unsave'
+
 
   devise_for :users
 

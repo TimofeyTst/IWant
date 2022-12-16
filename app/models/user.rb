@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :validatable, :confirmable,
          :lockable, :trackable
 
+  enum theme: %i[dark light]
+
   has_one_attached :avatar
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy

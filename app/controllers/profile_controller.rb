@@ -1,7 +1,7 @@
 class ProfileController < ApplicationController
   include ProfileHelper
 
-  before_action :set_user, only: %i[show follow unfollow followers followees]
+  before_action :set_user, only: %i[show follow unfollow followers followees theme]
   skip_before_action :authenticate_user!, only: :show
 
   def show
@@ -42,6 +42,11 @@ class ProfileController < ApplicationController
         render turbo_stream: private_stream
       end
     end
+  end
+
+  def theme
+    current_user.update(theme: toggled_theme)
+    redirect_to profile_path(current_user), notice: "Theme changed. Please refresh the page"
   end
 
   private

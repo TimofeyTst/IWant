@@ -4,7 +4,7 @@
     top: 10px;
     right: 1vw;  
     width: 200px;
-    height: 130px;
+    height: 160px;
 
     transition: 0.5s;  
     display: flex;
@@ -74,6 +74,10 @@
     border-radius: 24px;
     background: var(--back-color);
 }
+img.theme_button{
+    width: 20px;
+    height: 20px;
+}
 .profile_settings.open .round-line{
     transform: translateX(-55%);
     background: var(--back-color);
@@ -82,8 +86,12 @@
     background: var(--back-vsp-color);
 }
 .profile_settings.open .like-text:hover {
-    color: var(--link-hover-color);
-    background: var(--like-hover-color);
+    color: var(--like-pressed-text-color);
+}
+.profile_settings .round-line .button.change_theme{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 /* Settings in post */
 .post .down {

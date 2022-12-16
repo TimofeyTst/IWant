@@ -138,12 +138,12 @@ footer .navbar .vertical-line{
     transition: 0.5s;
 }
 .like-text:hover {
-    color: var(--link-hover-color);
+    color: var(--like-pressed-text-color);
     background: var(--like-hover-color);
 }
 .like-text.pressed {
     transition: 0.5s;
-    color: var(--link-hover-color);
+    color: var(--like-pressed-text-color);
     background: var(--like-hover-color);
 }
 .interests.buttons .save{

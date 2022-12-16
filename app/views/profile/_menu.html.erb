@@ -6,14 +6,19 @@
         <div class="round"></div>
       </div>
       <div class="menu">
+        
         <div class="round-line like-text">
-          <%= link_to "Saved", interests_saved_path %>
+          <%= button_to "Saved", interests_saved_path %>
         </div>
         <div class="round-line">
-          <%= link_to "Edit profile", edit_user_registration_path %>
+          <%= button_to "Edit profile", edit_user_registration_path %>
         </div>
         <div class="round-line">
           <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+        </div>
+        <div class="round-line">
+          <% image_src = "#{toggled_theme}.png" %>
+          <%= button_to image_tag(image_src, class: "theme_button"), profile_theme_path, method: :put, class: "button change_theme" %>
         </div>
       </div>
     </div>
