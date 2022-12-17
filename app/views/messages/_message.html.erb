@@ -1,0 +1,11 @@
+<div class="container-msg user-<%=message.user.id%>">
+    <div class="msg user-<%=message.user.id%>">
+        <% unless message.room.is_private %>
+            <div class="line">
+                <%= render 'search/avatar', user: message.user %>
+                <div class="name"><%= message.user.username %></div>
+            </div>
+        <% end %>
+            <div class="body"><%= message.body %></div>
+    </div>
+</div>

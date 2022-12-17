@@ -1,9 +1,13 @@
 class User < ApplicationRecord
+  after_create_commit { broadcast_append_to "users" }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable, :rememberable
   devise :database_authenticatable, :registerable,
          :recoverable, :validatable, :confirmable,
          :lockable, :trackable
+
+  scope :all_except, ->(user) { where.not(id: user) }
+  has_many :messages
 
   enum theme: %i[dark light]
 

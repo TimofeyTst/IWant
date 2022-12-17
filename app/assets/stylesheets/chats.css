@@ -1,0 +1,100 @@
+#chatroom_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    height: 80vh;
+    margin-right: 0px;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+#chatroom_container .user{
+    height: 2vw;
+}
+#chatroom_container .user:hover{
+    transform: scale(1.05);
+}
+#chatroom_container .current_user * {
+    justify-content: center;
+}
+#chatroom_container .current_user .avatar-mini {
+    margin-top: 5px;
+    height: 7vh;
+    width: 7vh;
+}
+#chatroom_container .user .avatar-mini{
+    height: 2vw;
+    width: 2vw;
+}
+#chatroom_container .input{
+    width: 10vw;
+    margin: 10px;
+}
+.msg-form{
+    width: 5vw;
+    height: 45px;
+    padding: 12px;
+}
+#messages{
+    width: 50vw;
+    height: calc(70vh - 150px);
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+#user_container,
+#room_container {
+    height: 70vh;
+    margin-right: 0px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#chat_container {
+    height: 70vh;
+    margin-right: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#single_room h1{
+    text-align: center;
+}
+#chat_container,
+#messages {
+    width: 50vw;
+}
+.container-msg{
+    margin: 8px;
+}
+.container-msg .msg{
+    padding: 12px;
+    border-radius: 16px;
+    width: 20vw;
+    background: var(--back-color);
+    word-break: break-all;
+}
+#messages .avatar-mini{
+    height: 2vw;
+    width: 2vw;
+    margin-right: 10px;
+}
+#messages .line{
+    margin: 0px 0px 10px 0px;
+    display: flex;
+    justify-content: flex-start;
+}
+#messages .line *{
+    padding: 0px;
+}
+#messages .name{
+    font-size: 16px;
+}
+.msg-form{
+    width: 100%;
+}
+#chatroom_container .msg-form .input{
+    width: 30vw;
+}

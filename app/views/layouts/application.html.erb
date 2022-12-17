@@ -9,7 +9,16 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-
+  <style>
+  <% if user_signed_in? %>
+    .container-msg.user-<%= current_user.id %>{
+      display: flex;
+      justify-content: flex-end;
+    }
+    .container-msg .msg.user-<%=current_user.id%>{
+    }
+  <% end %>
+  </style>
   <body>
   
     <%= render 'layouts/navbar' %>
