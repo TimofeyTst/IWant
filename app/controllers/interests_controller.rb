@@ -51,6 +51,7 @@ class InterestsController < ApplicationController
       search = Post.ransack({ 'tags_start' => tag }).result(distinct: true)
       @posts += search unless search.nil?
     end
+    @users.reject { |user| current_user.followees.include?(user) }
     @posts.uniq!
   end
 
@@ -80,8 +81,6 @@ class InterestsController < ApplicationController
       query = @followees&.sample&.posts&.sample&.tags&.split
       @tags += query unless query.nil?
     end
-    query = @followees&.sample
-    @users.push(query) unless query.nil?
   end
 
   def from_saved
