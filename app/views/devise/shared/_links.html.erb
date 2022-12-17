@@ -1,34 +1,34 @@
 <%- if controller_name != 'sessions' %>
   <div class="line">
-    <div>Already have an account?</div>
-    <%= link_to "Log in", new_session_path(resource_name), class: 'button' %>
+    <div><%=(t"Already have an account")%>?</div>
+    <%= link_to (t "Log in"), new_session_path(resource_name), class: 'button' %>
   </div>
 <% end %>
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
   <div class="line">
-    <div>Don`t` have any account?</div>
-    <%= link_to "Sign up", new_registration_path(resource_name), class: 'button' %>
+    <div><%=(t "Don`t` have any account?")%></div>
+    <%= link_to (t "Sign up"), new_registration_path(resource_name), class: 'button' %>
   </div>  
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
   <div class="line">
-    <div>Forgot your password?</div>
-    <%= link_to "Recover", new_password_path(resource_name), class: 'button' %>
+    <div><%= (t "Forgot your password?") %></div>
+    <%= link_to (t "Recover"), new_password_path(resource_name), class: 'button' %>
   </div> 
 <% end %>
 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
   <div class="line">
-    <div>Didn't receive confirmation instructions?</div>
-    <%= link_to "Resend", new_confirmation_path(resource_name), class: 'button' %>
+    <div><%=(t "Didn't receive confirmation instructions?")%></div>
+    <%= link_to (t "Resend"), new_confirmation_path(resource_name), class: 'button' %>
   </div>
 <% end %>
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
   <div class="line">
-    <div>Didn't receive unlock instructions?</div>
-    <%= link_to "Resend", new_unlock_path(resource_name), class: 'button' %>
+    <div><%=(t "Didn't receive unlock instructions?")%></div>
+    <%= link_to (t "Resend"), new_unlock_path(resource_name), class: 'button' %>
   </div>  
 <% end %>

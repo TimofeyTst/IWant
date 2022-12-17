@@ -1,0 +1,207 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t("hello") %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# The following keys must be escaped otherwise they will not be retrieved by
+# the default I18n backend:
+#
+# true, false, on, off, yes, no
+#
+# Instead, surround them with single quotes.
+#
+# en:
+#   "true": "foo"
+#
+# To learn more, please read the Rails Internationalization guide
+# available at https://guides.rubyonrails.org/i18n.html.
+
+ru:
+  devise:
+    confirmations:
+      confirmed: "Ваша учётная запись успешно подтверждена."
+      send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по подтверждению вашей учётной записи."
+      send_paranoid_instructions: "Если ваш адрес email есть в нашей базе данных, то в течение нескольких минут вы получите письмо с инструкциями по подтверждению вашей учётной записи."
+    failure:
+      already_authenticated: "Вы уже вошли в систему."
+      inactive: "Ваша учётная запись ещё не активирована."
+      invalid: "Неверный %{authentication_keys} или пароль."
+      locked: "Ваша учётная запись заблокирована."
+      last_attempt: "У Вас осталась еще одна попытка ввести пароль до блокировки."
+      not_found_in_database: "Неверный %{authentication_keys} или пароль."
+      timeout: "Ваш сеанс закончился. Пожалуйста, войдите в систему снова."
+      unauthenticated: "Вам необходимо войти в систему или зарегистрироваться."
+      unconfirmed: "Вы должны подтвердить вашу учётную запись."
+    mailer:
+      confirmation_instructions:
+        subject: "Инструкции по подтверждению учётной записи."
+      reset_password_instructions:
+        subject: "Инструкции по восстановлению пароля."
+      unlock_instructions:
+        subject: "Инструкции по разблокировке учётной записи."
+      email_changed:
+        subject: "Еmail адрес был изменён."
+      password_change:
+        subject: "Пароль был изменён."
+    omniauth_callbacks:
+      failure: "Вы не можете войти в систему с учётной записью из %{kind}, так как \"%{reason}\"."
+      success: "Вход в систему выполнен с учётной записью из %{kind}."
+    passwords:
+      no_token: "Эта страница доступна только при переходе с email для сброса пароля. Если Вы перешли по ссылке из письма, пожалуйста, убедитесь, что вы использовали полный URL."
+      send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по восстановлению вашего пароля."
+      send_paranoid_instructions: "Если ваш адрес email есть в нашей базе данных, то в течение нескольких минут Вы получите письмо с инструкциями по восстановлению вашего пароля."
+      updated: "Ваш пароль успешно изменён. Теперь вы вошли в систему."
+      updated_not_active: "Пароль успешно изменён."
+    registrations:
+      destroyed: "До свидания! Ваша учётная запись успешно удалена. Надеемся снова увидеть вас."
+      signed_up: "Добро пожаловать! Вы успешно зарегистрировались."
+      signed_up_but_inactive: "Вы успешно зарегистрировались. Тем не менее, вы не можете войти, потому что ваша учетная запись ещё не активирована."
+      signed_up_but_locked: "Вы успешно зарегистрировались. Тем не менее, вы не можете войти, потому что ваша учетная запись заблокирована."
+      signed_up_but_unconfirmed: "В течение нескольких минут вы получите письмо с инструкциями по подтверждению вашей учётной записи."
+      update_needs_confirmation: "Ваш аккаунт успешно обновлен, но необходимо подтвердить Ваш новый адрес email. Пожалуйста, проверьте свою электронную почту и нажмите на ссылку \"Подтвердить\", чтобы завершить обновления email."
+      updated: "Ваша учётная запись успешно изменена."
+      updated_but_not_signed_in: "Ваш аккаунт успешно изменен, но так как ваш пароль изменился, нужно войти снова."
+    sessions:
+      signed_in: "Вход в систему выполнен."
+      signed_out: "Выход из системы выполнен."
+      already_signed_out: "Выход из системы выполнен."
+    unlocks:
+      send_instructions: "В течение нескольких минут вы получите письмо с инструкциями по разблокировке вашей учётной записи."
+      send_paranoid_instructions: "Если ваша учётная запись существует, то в течение нескольких минут вы получите письмо с инструкциями по её разблокировке."
+      unlocked: "Ваша учётная запись разблокирована. Теперь вы вошли в систему."
+  errors:
+    messages:
+      already_confirmed: "уже подтверждена. Пожалуйста, попробуйте войти в систему"
+      confirmation_period_expired: "должен быть подтвержден в течении %{period}, пожалуйста, запросите подтверждение ещё раз"
+      expired: "устарела. Пожалуйста, запросите новую"
+      not_found: "не найдена"
+      not_locked: "не заблокирована"
+      not_saved:
+        one: "%{resource}: сохранение не удалось из-за %{count} ошибки"
+        few: "%{resource}: сохранение не удалось из-за %{count} ошибок"
+        many: "%{resource}: сохранение не удалось из-за %{count} ошибок"
+        other: "%{resource}: сохранение не удалось из-за %{count} ошибки"
+
+  activerecord:
+    attributes:
+      user:
+        username: "Логин"
+        avatar: "Аватар"
+        password: "Пароль"
+        password_confirmation: "Подтверждение пароля"
+        current_password: "Текущий пароль"
+      post:
+        description: "Описание"
+        tags: "Теги"
+        picture: "Картинка"
+      comment:
+        body: "Содержание"
+      message:
+        body: "Содержание"
+      room:
+        name: "Название"
+      
+  Log out: "Выйти"
+  Log in: "Войти"
+  Edit profile: "Настройки"
+  Edit: "Редактировать"
+  Profile: "Профиль"
+  'Tags #': "Теги #"      
+  Sign in: "Войти"
+  Save: "Сохранить"
+  Saved: "Сохранено"
+  Saved posts: "Избранное"
+  Search: "Поиск..."
+  Posts only: "Посты"
+  Users only: "Пользователи"
+  Total users: "Всего пользователей"
+  Total posts: "Всего постов"
+  Comments: "Комментарии"
+  Reply: "Отправить"
+  result:
+    one: "%{count} результат"
+    few: "%{count} результатa"
+    many: "%{count} результатов"  
+    other: "%{count} результатов" 
+
+  for username: "для имени пользователя"
+  'for tag #': "для тега #" 
+  for tag or username: "для тега или имени пользователя" 
+  Edit post: "Редактировать"
+  Open post: "Открыть"
+  chats: "чаты"
+  Rooms: "Комнаты"
+  Edit this post: "Редактировать этот пост"
+  Destroy this post: "Удалить этот пост"
+  New book: "Новая книга"
+  Tasty: "Вкус"
+  Show this post: "Показать этот пост"
+  Back to posts: "Вернуться к постам"
+  Editing post: "Редактирование поста"
+  book: "книга"
+  Writing: "Описание"
+  Tags: "Теги"
+  Privacy Policy: "Политика пользования"
+  Contacts: "Контакты"
+  followers: 
+    one: "%{count} Подписчик"
+    few: "%{count} Подписчика"
+    many: "%{count} Подписчиков"
+    other: "%{count} Подписчиков"
+
+  followees:
+    one: "%{count} Подписка"
+    few: "%{count} Подписки"
+    many: "%{count} Подписок"
+    other: "%{count} Подписок"
+
+  Unfollow: "Отписаться" 
+  Follow: "Подписаться" 
+  Resend unlock instructions: "Отправить инструкции разблокировки"
+  Resend confirmation instructions: "Отправить инструкции подтверждения"
+  Recover: "Восстановить"
+  Forgot your password?: "Забыли пароль?"
+  Didn't receive confirmation instructions?: "Не получили инструкции подтверждения?"
+  Resend: "Отправить повторно"
+  Didn't receive unlock instructions?: "Не получили инструкции разблокировки?"
+  Don`t` have any account?: "Еще нет аккаунта?"
+  Already have an account: "Уже есть аккаунт"
+  Sign up: "Зарегистрироваться"
+  Leave field blank if you don't want to change it: "Оставьте поле пустым если не хотите его менять"
+  Profile photo: "Фото профиля"
+  Update: "Сохранить"
+  Change your password: "Изменить пароль"
+  Confirm new password: "Подтвердить новый пароль"
+  Change my password: "Изменить пароль"
+  New password: "Новый пароль"
+  Send me reset password instructions: "Отправить инструкции изменения пароля"
+  Forgot your password: "Забыли пароль"
+  New password: "Новый пароль"
+  Confirm new password: "Подтвердить новый пароль"
+  Currently waiting confirmation for: "Текущее время ожидания для"
+  Don`t emplore your avatar photo?: "Не наслаждаетесь своим фото в профиле?"
+  Delete avatar picture: "Удалить фото профиля"
+  Want to leave us?: "Хотите покинуть нас?"
+  Delete my account: "Удалить аккаунт"
+
+  reaction:
+    one: "%{count} реакция"
+    few: "%{count} реакции"
+    many: "%{count} реакций"   
+    other: "%{count} реакций"   
+
+  Find: "Найти"
+  Create message: "Отправить"

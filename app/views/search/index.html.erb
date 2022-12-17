@@ -1,15 +1,20 @@
 <%= render 'search/form' %>
 
 <% if params[:only] == "users" %>
-    <h1><%= pluralize(@users.count, 'Result') %> <%= "for username '#{params[:q][:tags_i_cont_any]}'" if params[:q]%></h1>
+    <% if params[:q].presence && params[:q][:tags_i_cont_any].presence %>
+        <h1><%= (t "result", count: @users.count) %> <%= (t "for username") %> '<%= params[:q][:tags_i_cont_any] %>' </h1>
+    <% end %>
     <%= render 'search/blocks', blocks_by_three: @users_by_three %>
 <% elsif params[:only] == "posts" %>
-    
-    <h1><%= pluralize(@posts.count, 'Result') %> <%= "for tag ##{params[:q][:tags_i_cont_any]}" if params[:q] %></h1>
+    <% if params[:q].presence && params[:q][:tags_i_cont_any].presence %>
+        <h1><%= (t "result", count: @posts.count) %> <%= (t "for tag #") %><%= params[:q][:tags_i_cont_any] %></h1>
+    <% end %>
     <%= render 'search/blocks', blocks_by_three: @posts_by_three %>
 
 <% else %>
-    <h1><%= pluralize(@posts.count + @users.count, 'Result') %> <%= "for tag or username '#{params[:q][:tags_i_cont_any]}'" if params[:q] %></h1>
+    <% if params[:q].presence && params[:q][:tags_i_cont_any].presence %>
+        <h1><%= (t "result", count: @posts.count + @users.count) %> <%= (t "for tag or username") %> '<%= params[:q][:tags_i_cont_any] %>'</h1>
+    <% end %>
     <%= render 'search/blocks', blocks_by_three: @blocks_by_three %>
 <% end %>
 

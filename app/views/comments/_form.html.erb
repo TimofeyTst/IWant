@@ -1,4 +1,4 @@
-<h2>Comments</h2>
+<h2><%= (t "Comments") %></h2>
 <%= form_with(model: [post, comment]) do |f| %>
 
 <% frame_id = dom_id(comment, "comment_turbo_frame") %>
@@ -14,7 +14,7 @@
             <%= f.text_area :body %>
         </div>
         <div class="field">
-            <%= f.submit "Reply", class: "button" %>
+            <%= f.submit (t "Reply"), class: "button" %>
         </div>
     </div>
 

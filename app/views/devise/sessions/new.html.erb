@@ -1,5 +1,5 @@
 <div class="form">
-  <h2>Log in</h2>
+  <h2><%= (t "Log in") %></h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
@@ -15,7 +15,7 @@
     </div>
 
     <div class="form-button">
-      <%= f.submit "Log in", class: "button" %>
+      <%= f.submit (t "Log in"), class: "button" %>
     </div>
   <% end %>
 </div>

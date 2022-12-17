@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html data-color-mode="<%= (current_user&.theme || "light") %>">
   <head>
-    <title>IDance</title>
+    <title>Lebido</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -34,6 +34,7 @@
     <%= render 'layouts/footer' %>
   </body>
   <script>
+  
     imgInp.onchange = evt => {
     const [file] = imgInp.files
     if (file) {

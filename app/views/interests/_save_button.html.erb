@@ -1,9 +1,9 @@
 <%= turbo_frame_tag("save_post_#{post.id}") do %>
     <div class="interests buttons">
         <% if saved?(post) %>
-            <%= button_to 'Saved', interests_unsave_path(id: post.id), method: :delete, class: 'save pressed like-text' %>
+            <%= button_to (t 'Saved'), interests_unsave_path(id: post.id), method: :delete, class: 'save pressed like-text' %>
         <% else %>
-            <%= button_to 'Save', interests_save_path(id: post.id), method: :post, class: 'save like-text' %>
+            <%= button_to (t 'Save'), interests_save_path(id: post.id), method: :post, class: 'save like-text' %>
         <% end %>
     </div>
 <% end %>

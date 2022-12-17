@@ -2,7 +2,7 @@
     <%= form_with(model: [@single_room, @message]) do |f| %>
         <div class="line">
             <%= f.text_field :body, autocomplete: 'off', class: 'input' %>
-            <%= f.submit data: { disable_with: false }, class: 'button' %>
+            <%= f.submit (t "Create message"), data: { disable_with: false }, class: 'button' %>
         <div>
     <% end %>
 </div>

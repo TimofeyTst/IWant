@@ -1,3 +1,2 @@
-<h1>Total users: <%= @users.count %></h1>
-<h1>Total posts: <%= @posts.count %></h1>
+<h3><%= (t "Total users") %>: <%= @users.count %> <%= (t "Total posts") %>: <%= @posts.count %></h3>
 <%= render 'search/blocks', blocks_by_three: @results_by_three %>

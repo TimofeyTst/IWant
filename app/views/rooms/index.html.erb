@@ -2,7 +2,7 @@
     <div id="user_container">
         <div class="current_user">
             <%= render 'search/avatar', user: current_user %>
-            <div class="name"><%= current_user.username.capitalize %> chats</div>
+            <div class="name"><%= current_user.username.capitalize %> <%= (t "chats") %> </div>
         </div>
         <%= turbo_stream_from "users" %>
         <div id="users">
@@ -10,7 +10,7 @@
         </div>
     </div>
     <div id="room_container">
-        <h4>Rooms</h4>
+        <h4><%= (t "Rooms") %></h4>
         <%= render 'rooms/room_form' %>
         <%= turbo_stream_from "rooms" %>
         <div id="rooms">

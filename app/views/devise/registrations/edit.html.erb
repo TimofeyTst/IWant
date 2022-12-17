@@ -1,11 +1,11 @@
 <div class="user_form">
   <div class="avatar">
-    <h2>Edit @<%= resource.username %></h2>
+    <h2><%= (t "Edit") %> @<%= resource.username %></h2>
     <% if resource.avatar.attached? %>
       <%= image_tag resource.avatar, class: "avatar-mini" %>
     <% end %>
   </div>
-  <p><i>Leave field blank if you don't want to change it</i></p>
+  <p><i><%= (t "Leave field blank if you don't want to change it") %></i></p>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
@@ -17,13 +17,13 @@
     </div>
 
     <div class="field">
-      <%= f.label :password, 'New password' %>
+      <%= f.label :password, (t 'New password') %>
       <%= f.password_field :password, autocomplete: "new-password" %>
       <span></span>
     </div>
 
     <div class="field">
-      <%= f.label :password_confirmation, 'Confirm new password' %>
+      <%= f.label :password_confirmation, (t 'Confirm new password') %>
       <%= f.password_field :password_confirmation, autocomplete: "new-password"%>
       <span></span>
     </div>
@@ -36,7 +36,7 @@
 
     <div class="row">
       <div class="field">
-        <%= f.label :avatar, 'Profile photo' %>
+        <%= f.label :avatar, (t 'Profile photo') %>
         <%= f.file_field :avatar, :id => "imgInp" %>
       </div>
       <div class="field">
@@ -45,7 +45,7 @@
     </div>
 
     <div class="form-button">
-      <%= f.submit "Update", class: 'button' %>
+      <%= f.submit (t "Update"), class: 'button' %>
     </div>
   <% end %>
 </div>
@@ -54,15 +54,15 @@
 
 <div class="container">
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+    <div><%= (t "Currently waiting confirmation for")%>: <%= resource.unconfirmed_email %></div>
   <% end %>
   <div class="line">
-    <div>Don`t emplore your avatar photo?</div>
-    <%= button_to "Delete avatar picture", profile_avatar_path, data: { confirm: "Are you sure?" }, method: :delete, class: 'button delete' %>
+    <div><%=(t "Don`t emplore your avatar photo?")%></div>
+    <%= button_to (t "Delete avatar picture"), profile_avatar_path, data: { confirm: "Are you sure?" }, method: :delete, class: 'button delete' %>
   </div>  
   <div class="line">
-    <div>Want to leave us?</div>
-    <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'button delete_account' %>
+    <div><%= (t "Want to leave us?")%></div>
+    <%= button_to (t "Delete my account"), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'button delete_account' %>
   </div>
 
 </div>

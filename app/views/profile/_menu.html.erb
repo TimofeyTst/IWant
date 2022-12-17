@@ -8,13 +8,13 @@
       <div class="menu">
         
         <div class="round-line like-text">
-          <%= button_to "Saved", interests_saved_path, method: :get %>
+          <%= button_to (t "Saved posts"), interests_saved_path, method: :get %>
         </div>
         <div class="round-line">
-          <%= button_to "Edit profile", edit_user_registration_path, method: :get %>
+          <%= button_to (t "Edit profile"), edit_user_registration_path, method: :get %>
         </div>
         <div class="round-line">
-          <%= button_to "Log out", destroy_user_session_path, method: :delete %>
+          <%= button_to (t "Log out"), destroy_user_session_path, method: :delete %>
         </div>
         <div class="round-line">
           <% image_src = "#{toggled_theme}.svg" %>

@@ -18,15 +18,15 @@
         </div>
 
         <div class="field">
-          <%= form.label :tags, "Tags #" %>
+          <%= form.label :tags, (t "Tags #") %>
           <%= form.text_field :tags %>
         </div>        
-      </div>
+    </div>
 
       <div class="right">
         <div class="field">
           <% @image_src ||= 'default_preview.png' %>
-          <%= image_tag @image_src, id: 'blah', alt: "Preview", class: 'post_picture_big' %>
+          <%= image_tag @image_src, id: 'blah', class: 'post_picture_big' %>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
         <%= form.file_field :picture, :id => "imgInp" %>
       </div>   
       <div class="field">
-        <%= form.submit 'Save', class: 'button' %>
+        <%= form.submit (t 'Save'), class: 'button' %>
       </div>
     </div>
      

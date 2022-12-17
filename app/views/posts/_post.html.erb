@@ -10,22 +10,24 @@
               <% end %>
           </div>
           <div class="name">
-              <%= post.user.username.capitalize %> book  
+              <%= post.user.username.capitalize %>
           </div>
         </div>
         
         <div class="big_text">
           <div class="field">
             <% unless post.description.empty? %>
-              <p>Writing:</p>
+              <p><%= (t "Writing") %>:</p>
               <p><%= post.description %></p>
             <% end %>
           </div>
 
           <div class="field">
           <%= render 'interests/save_button', post: post if user_signed_in? %>
-            <p>Tags #</p>
-            <p><%= post.tags %></p>
+            <% unless post.tags&.empty? %>
+              <p> <%= (t "Tags") %>:</p>
+              <p><%= post.tags %></p>
+            <% end %>
           </div>
         </div>        
       </div>

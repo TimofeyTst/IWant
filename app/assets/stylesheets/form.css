@@ -1,5 +1,5 @@
 .field p{
-    word-break: break-all;
+    word-break: break-word;
 }
 .container .form,
 .container .user_form {

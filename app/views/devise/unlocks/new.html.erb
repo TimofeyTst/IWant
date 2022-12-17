@@ -1,6 +1,6 @@
 <div class="user_form">
 
-<h2>Resend unlock instructions</h2>
+<h2><%= (t "Resend unlock instructions") %></h2>
 
 <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -12,7 +12,7 @@
   </div>
 
   <div class="form-button">
-    <%= f.submit "Resend unlock instructions", class: 'button' %>
+    <%= f.submit (t "Resend unlock instructions"), class: 'button' %>
   </div>
 <% end %>
 </div>

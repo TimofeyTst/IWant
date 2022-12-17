@@ -13,8 +13,8 @@
                 <div class="round"></div>
             </div>
             <div class="menu">
-                <%= link_to "Edit post", edit_post_path(post), class: 'menu-button' if post.user == current_user %>
-                <%= link_to 'Open post', post, class: 'menu-button' %>
+                <%= link_to (t "Edit post"), edit_post_path(post), class: 'menu-button' if post.user == current_user %>
+                <%= link_to (t 'Open post'), post, class: 'menu-button' %>
                 <%= render 'interests/save_button', post: post if user_signed_in? %>
             </div>
         </div>
