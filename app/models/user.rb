@@ -1,13 +1,13 @@
 class User < ApplicationRecord
-  after_create_commit { broadcast_append_to "users" }
+  after_create_commit { broadcast_append_to 'users' }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable, :rememberable
   devise :database_authenticatable, :registerable,
          :recoverable, :validatable, :confirmable,
          :lockable, :trackable
 
-  scope :all_except, ->(user) { where.not(id: user) }
-  has_many :messages
+  # scope :all_except, ->(user) { initiators + recipients }
+  has_many :messages, dependent: :destroy
 
   enum theme: %i[dark light]
 
@@ -38,6 +38,30 @@ class User < ApplicationRecord
   # This accesses the user through the relationship object
   has_many :followers,
            through: :following_users,
+           dependent: :destroy
+
+  # This access the Participant object
+  has_many :initiatoring_users,
+           foreign_key: :initiator_id,
+           class_name: 'Participant',
+           dependent: :destroy
+
+  # This accesses the user through the participant object
+  has_many :initiators,
+           through: :initiatoring_users,
+           source: :recipient,
+           dependent: :destroy
+
+  # This access the Participant object
+  has_many :recipient_users,
+           foreign_key: :recipient_id,
+           class_name: 'Participant',
+           dependent: :destroy
+
+  # This accesses the user through the participant object
+  has_many :recipients,
+           through: :recipient_users,
+           source: :initiator,
            dependent: :destroy
 
   has_many :CollectionSavedPost, dependent: :destroy

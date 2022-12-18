@@ -32,9 +32,12 @@ Rails.application.routes.draw do
       resources :comments
     end
 
-    resources :rooms, only: %i[index show create] do
+    resources :rooms, only: %i[show] do
       resources :messages
     end
+    get 'chats', to: 'rooms#index', as: 'chats'
+    get 'chat/:id', to: 'rooms#show', as: 'chat'
+    post 'chat/:id', to: 'rooms#create', as: 'chat_create'
     # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
     # Defines the root path route ("/")

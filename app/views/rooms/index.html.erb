@@ -1,22 +1,18 @@
 <div class="container" id="chatroom_container">
+
+    <%= turbo_stream_from "users" %>
     <div id="user_container">
         <div class="current_user">
             <%= render 'search/avatar', user: current_user %>
             <div class="name"><%= current_user.username.capitalize %> <%= (t "chats") %> </div>
         </div>
-        <%= turbo_stream_from "users" %>
         <div id="users">
-            <%= render @users %>
+            <% @users.each do |user| %>
+                <%= render 'rooms/user', user: user %>
+            <% end %>
         </div>
     </div>
-    <div id="room_container">
-        <h4><%= (t "Rooms") %></h4>
-        <%= render 'rooms/room_form' %>
-        <%= turbo_stream_from "rooms" %>
-        <div id="rooms">
-            <%= render @rooms %>
-        </div>
-    </div>
+
     <div id="chat_container">
         <% if @single_room %>
             <div id="single_room">
