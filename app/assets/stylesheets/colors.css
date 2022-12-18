@@ -25,6 +25,8 @@ html {
     --like-hover-color: #c4331a;
     --like-pressed-text-color: #c4331a;
     --avatar-border-color: #7600a5;
+    --blue-color: #4778ff;
+    --white-color: #fff;
 }
 
 html[data-color-mode="light"] {
@@ -53,6 +55,8 @@ html[data-color-mode="light"] {
         --like-hover-color: #c4331a;
         --like-pressed-text-color: #fff;
         --avatar-border-color: #7600a5;
+        --blue-color: #4778ff;
+        --white-color: #fff;
     }
 
 html[data-color-mode="dark"] {
@@ -82,6 +86,8 @@ html[data-color-mode="dark"] {
         --like-hover-color: #c4331a;
         --like-pressed-text-color: #fff;
         --avatar-border-color: #7600a5;
+        --blue-color: #4778ff;
+        --white-color: #fff;
     }
 
 .error-text {

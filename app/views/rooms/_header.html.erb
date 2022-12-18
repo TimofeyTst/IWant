@@ -1,0 +1,8 @@
+<div class="header">
+    <%= render 'search/avatar', user: user %>
+    <div class="text">
+        <div class="name">
+            <%= link_to user.username, chat_path(id: user.id) %>  
+        </div>   
+    </div>                   
+</div>

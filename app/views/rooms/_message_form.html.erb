@@ -1,8 +1,10 @@
-<div class="msg-form">
-    <%= form_with(model: [@single_room, @message]) do |f| %>
-        <div class="line">
-            <%= f.text_field :body, autocomplete: 'off', class: 'input' %>
-            <%= f.submit (t "Create message"), data: { disable_with: false }, class: 'button' %>
-        <div>
-    <% end %>
-</div>
+<%= form_with(model: [@single_room, @message]) do |f| %>
+    <div class="msg-form">
+            <div class="field">
+                <%= f.text_field :body, autocomplete: 'off', placeholder: (t "Write here..."), class: 'input' %>
+                <%= button_tag( class: "button", data: { disable_with: false }) do %>
+                  <%= inline_svg_tag("send.svg", class: 'svg-picture') %>
+                <% end %>
+            <div>
+    </div>
+<% end %>

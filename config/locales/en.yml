@@ -71,7 +71,7 @@ en:
       user:
         username: "Login"
         avatar: "Avatar"
-        password: "password"
+        password: "Password"
         password_confirmation: "Password confirmation"
         current_password: "Сurrent password"
 
@@ -84,7 +84,7 @@ en:
       message:
         body: "body"
       room:
-        name: "name"
+        name: "Name"
       
   Log out: "Log out"
   Log in: "Log in"
@@ -177,6 +177,8 @@ en:
 
   Find: "Find"
   Create message: "Send"
+  Write here: "Write here..."
+
 
   
   

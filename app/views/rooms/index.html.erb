@@ -16,8 +16,8 @@
     <div id="chat_container">
         <% if @single_room %>
             <div id="single_room">
-                <h1><%= @user&.username || @single_room.name %></h1>
                 <%= turbo_stream_from @single_room %>
+                <%= render 'rooms/header', user: @user %>
                 <div id="messages">
                     <%= render @messages %>
                 </div>
