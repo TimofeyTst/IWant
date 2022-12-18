@@ -1,7 +1,6 @@
-<%= render 'search/form_inline' %>
-<% if params[:q].presence && params[:q][:tags_i_cont_any].presence %>
+<% if params[:q].presence %>
     <div class="result">
-        <h2 class="mt-0"><%= (t "result", count: @posts.count) %> <%= (t "for tag #") %><%= params[:q][:tags_i_cont_any] %></h2>
+        <h2 class="mt-0"><%= (t "result", count: @posts.count) %> <%= (t "for tag #") %><%= params[:q] %></h2>
     </div>
 <% end %>
 <%= render 'search/blocks', blocks_by_three: @posts_by_three %>

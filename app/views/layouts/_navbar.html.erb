@@ -8,7 +8,7 @@
             <%= link_to inline_svg_tag("home.svg", class: 'svg-picture'), root_path, class: 'nav-link' %>
           </div>
           <div>
-            <%= link_to inline_svg_tag("search.svg", class: 'svg-picture'), search_path, class: 'nav-link' %>
+            <%= render 'search/form_inline' %>
           </div>
           <div>
             <%= link_to inline_svg_tag("albums.svg", class: 'svg-picture'), albums_path, class: 'nav-link' %>

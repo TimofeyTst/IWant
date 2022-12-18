@@ -12,7 +12,7 @@
         <% end %>
 
         <% if current_user == comment.user %>
-            <%= button_to "Del", [post, comment], class: 'button delete', method: :delete %>
+            <%= button_to inline_svg_tag("delete.svg", class: 'svg-picture'), [post, comment], class: 'button delete', method: :delete %>
         <% end %>
     </div>
 

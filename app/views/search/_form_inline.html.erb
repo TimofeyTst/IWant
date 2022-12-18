@@ -1,11 +1,11 @@
-<%= search_form_for @q, url: search_path, method: :get do |f| %>
+<%= form_with url: search_path, method: :get do |f| %>
     <div id="search_form">
         <div class="search">
             <div class="icon" onclick="toggle_open(document.getElementById('search_form'))">
                 <%= inline_svg_tag("search.svg", class: 'svg-picture') %>
             </div>
             <div class="input">
-                <%= f.search_field :tags_i_cont_any, placeholder: (t "Search..."), class: "search_field" %>
+                <%= f.search_field :q, placeholder: (t "Search..."), class: "search_field" %>
             </div>
             <span class="clear" onclick="document.querySelector('.search_field').value = ''"></span>
         </div>

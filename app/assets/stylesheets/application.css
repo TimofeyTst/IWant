@@ -46,7 +46,6 @@
 }
 .navbar .nav-pages .nav-link:hover{
     color: var(--link-hover-color);
-    border-bottom: 1px solid var(--light-text-color);
 }
 footer .navbar{
     border-bottom: none;
@@ -156,4 +155,10 @@ footer .navbar .vertical-line{
 }
 .mt-0{
     margin-top: 0px;
+}
+.svg-picture{
+    transition: 0.5s;
+}
+.svg-picture:hover{
+    color: var(--link-hover-color);
 }

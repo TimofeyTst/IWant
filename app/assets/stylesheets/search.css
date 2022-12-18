@@ -1,17 +1,38 @@
+
+.nav-pages .search .svg-picture{
+    height: 35px;
+    width: 35px;
+}
+
+
 .search{
     position: relative;
     width: 40px;
     height: 40px;
     margin: 12px;
-    background: var(--back-color);
     border-radius: 40px;
     transition: 0.5s;
-    box-shadow: 0 0 0 5px var(--back-vsp-color);
+
+    background: var(--main-color);
+    box-shadow: none;
+    
     overflow-x: hidden;
     overflow-y: hidden;
 }
 #search_form.open .search{
+    background: var(--back-color);
+    box-shadow: 0 0 0 5px var(--back-vsp-color);
     width: 340px;
+}
+#search_form.open .search .icon{
+    background: var(--back-color);
+}
+#search_form.open .search .clear{
+    background: var(--back-color);
+}
+#search_form.open .search .svg-picture{
+    height: 30px;
+    width: 30px;
 }
 #search_form .button{
     height: 0px;
@@ -29,8 +50,8 @@
 .search .svg-picture{
     transition: 0.5s;
     color: var(--link-color);
-    width: 30px;
-    height: 30px;
+    height: 35px;
+    width: 35px;
 }
 .search .svg-picture:hover{
     color: var(--link-hover-color);
@@ -40,7 +61,6 @@
 }
 .search .input{
     position: relative;
-    widows: 300px;
     height: 40px;
     left: 40px;
     display: flex;
@@ -65,7 +85,8 @@
     left: 0;
     width: 40px;
     height: 40px;
-    background: var(--back-color);
+    background: var(--main-color);
+
     border-radius: 40px;
     display: flex;
     justify-content: center;
@@ -81,7 +102,8 @@
     width: 15px;
     height: 15px;
     right: 15px;
-    background: var(--back-color);
+    background: var(--main-color);
+
     cursor: pointer;
     display: flex;
     justify-content: center;
