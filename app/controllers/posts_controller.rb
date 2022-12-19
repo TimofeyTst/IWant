@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
-    @comments = @post.comments.order(created_at: :desc).sort_by{ |cm| -cm.likes.count }
+    @comments = @post.comments.order(created_at: :desc).sort_by { |cm| -cm.likes.count }
   end
 
   # GET /posts/new

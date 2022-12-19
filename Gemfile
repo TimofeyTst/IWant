@@ -77,3 +77,8 @@ group :development do
 end
 
 gem "ransack", "~> 3.2"
+
+group :test do
+  gem 'faker'
+  gem "rspec-rails", "~> 6.0"
+end
