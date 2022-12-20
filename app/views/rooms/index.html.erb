@@ -18,7 +18,7 @@
             <div id="single_room">
                 <%= turbo_stream_from @single_room %>
                 <%= render 'rooms/header', user: @user %>
-                <div id="messages">
+                <div id="messages" data-controller="scroll">
                     <%= render @messages %>
                 </div>
                 <%= render 'rooms/message_form' %>
