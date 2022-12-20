@@ -1,5 +1,8 @@
 class Post < ApplicationRecord
   belongs_to :user
+
+  has_many :CollectionSavedPost, dependent: :destroy
+
   has_many :comments, dependent: :destroy
   has_one_attached :picture
   validates :picture, presence: true

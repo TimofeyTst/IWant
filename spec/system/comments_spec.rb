@@ -1,7 +1,39 @@
 require 'rails_helper'
 
 RSpec.describe 'Comments', type: :system do
-  describe 'GET posts/:id' do
+  describe 'DELETE post/:id/comments/:id' do
+    before do
+      Rails.application.load_seed
+
+      visit new_user_session_path
+      fill_in :user_username, with: 'system'
+      fill_in :user_password, with: '123123'
+      find('.form-button .button').click
+      sleep(0.1)
+    end
+
+    scenario 'success while deleting check db' do
+      count_before = Comment.all.count
+      visit post_path(id: 1)
+      sleep(0.3)
+      find('.comment .button.delete').click
+      sleep(0.3)
+
+      expect(count_before - Comment.all.count).to eq(1)
+    end
+
+    scenario 'success while deleting check page' do
+      count_before = Comment.all.count
+      visit post_path(id: 1)
+      sleep(0.3)
+      find('.comment .button.delete').click
+      sleep(0.3)
+
+      expect(page).to have_content('Comment was destroyed')
+    end
+  end
+
+  describe 'GET post/:id' do
     before do
       Rails.application.load_seed
 
@@ -28,7 +60,6 @@ RSpec.describe 'Comments', type: :system do
     end
 
     scenario 'success while liking' do
-
       count_before = Comment.first.likes.count
       visit post_path(id: 1)
       fill_in :comment_body, with: Faker::ChuckNorris.fact

@@ -10,7 +10,10 @@ require 'faker'
 
 user = User.new(username: 'system', password: '123123', email: 'system@test.com')
 user.skip_confirmation!
+user.avatar.attach(io: File.open("#{Rails.root}/spec/images/test.png"),
+  filename: 'test.png', content_type: 'image/png')
 user.save
+
 user2 = User.new(username: 'system2', password: '123123', email: 'system2@test.com')
 user2.skip_confirmation!
 user2.save

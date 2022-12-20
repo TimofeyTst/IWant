@@ -45,7 +45,7 @@
     </div>
 
     <div class="form-button">
-      <%= f.submit (t "Update"), class: 'button' %>
+      <%= f.submit (t "Update"), class: 'button update' %>
     </div>
   <% end %>
 </div>
@@ -56,10 +56,12 @@
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div><%= (t "Currently waiting confirmation for")%>: <%= resource.unconfirmed_email %></div>
   <% end %>
-  <div class="line">
-    <div><%=(t "Don`t emplore your avatar photo?")%></div>
-    <%= button_to (t "Delete avatar picture"), profile_avatar_path, data: { confirm: "Are you sure?" }, method: :delete, class: 'button delete' %>
-  </div>  
+  <% if current_user.avatar.attached? %>
+    <div class="line">
+      <div><%=(t "Don`t emplore your avatar photo?")%></div>
+      <%= button_to (t "Delete avatar picture"), profile_avatar_path, data: { confirm: "Are you sure?" }, method: :delete, class: 'button delete avatar' %>
+    </div>  
+  <% end %>
   <div class="line">
     <div><%= (t "Want to leave us?")%></div>
     <%= button_to (t "Delete my account"), registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'button delete_account' %>

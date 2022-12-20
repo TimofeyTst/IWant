@@ -48,7 +48,7 @@ class ProfileController < ApplicationController
     current_user.update(theme: toggled_theme)
     redirect_to profile_path(current_user), notice: 'Theme changed. Please refresh the page'
     respond_to do |format|
-      format.js { render inline: "location.reload();" }
+      format.js { render inline: 'location.reload();' }
     end
   end
 

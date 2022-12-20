@@ -18,7 +18,7 @@
 
 <% if @post.user == current_user %>
 <div class="line">
-  <%= link_to (t "Edit this post"), edit_post_path(@post), class: 'button' %>
+  <%= link_to (t "Edit this post"), edit_post_path(@post), class: 'button edit' %>
   <%= button_to (t "Destroy this post"), @post, method: :delete, class: 'button delete' %>
 </div>
 <% end %>
