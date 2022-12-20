@@ -22,7 +22,7 @@ RSpec.describe 'Chats', type: :system do
         find(".chat_#{user.id}").click
         fill_in :message_body, with: Faker::ChuckNorris.fact
         find('.msg-form .field .button').click
-        sleep(1)
+        sleep(3)
 
         expect(room.messages.count - count_before).to eq(1)
       end
