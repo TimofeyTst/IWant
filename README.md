@@ -1,4 +1,4 @@
-# IWant
+# My Rails Project - IWant
 Photo interests social network
 
 This work was create by me in BMSTU in 2022
