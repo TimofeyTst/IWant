@@ -1,7 +1,7 @@
 # IWant
 Photo interests social network
 
-This work was create in my University in 2022
+This work was create by me in BMSTU in 2022
 - 2 weeks coding by me
 - 6 months of learning Ruby on Rails
 
