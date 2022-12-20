@@ -1,24 +1,20 @@
-# README
+# IWant
+Photo interests social network
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This work was create in my University in 2022
+- 2 weeks coding by me
+- 6 months of learning Ruby on Rails
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 3.1.2
 
-* System dependencies
+* Rails 7.0.4
 
-* Configuration
+* How to run the test suite: 
+    rspec
 
-* Database creation
+* IWant - service for creative photo social network with
+profiles, followers, comments and likes, saving posts,
+and also a chat
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
