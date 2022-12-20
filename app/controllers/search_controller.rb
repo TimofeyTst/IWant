@@ -10,10 +10,10 @@ class SearchController < ApplicationController
   private
 
   def user_params
-    { 'username_start' => params[:q] }
+    { 'username_start' => params[:query] }
   end
 
   def post_params
-    { 'tags_i_cont_any' => params[:q] }
+    { 'tags_i_cont_any' => params[:query] }
   end
 end

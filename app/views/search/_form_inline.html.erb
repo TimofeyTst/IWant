@@ -5,7 +5,7 @@
                 <%= inline_svg_tag("search.svg", class: 'svg-picture') %>
             </div>
             <div class="input">
-                <%= f.search_field :q, placeholder: (t "Search..."), class: "search_field" %>
+                <%= f.search_field :query, placeholder: (t "Search..."), class: "search_field" %>
             </div>
             <span class="clear" onclick="document.querySelector('.search_field').value = ''"></span>
         </div>

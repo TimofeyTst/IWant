@@ -29,11 +29,11 @@ Rails.application.routes.draw do
     end
 
     resources :posts do
-      resources :comments
+      resources :comments, only: %i[create destroy]
     end
 
-    resources :rooms, only: %i[show] do
-      resources :messages
+    resources :rooms, only: :show do
+      resources :messages, only: :create
     end
     get 'chats', to: 'rooms#index', as: 'chats'
     get 'chat/:id', to: 'rooms#show', as: 'chat'

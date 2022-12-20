@@ -8,7 +8,7 @@ RSpec.describe Participant, type: :model do
     user2 = User.new(username: 'test2', password: '123123', email: 'test2@example.com')
     user2.skip_confirmation!
     user2.save
-    @room = Room.create_room(user, user2, 'private_1_2')
+    @room = Room.create_room(User.first, User.find(2), ['private_1_2'])
   end
 
   describe 'should return nil errors while' do

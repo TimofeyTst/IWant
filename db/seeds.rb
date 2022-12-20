@@ -5,52 +5,95 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
 require 'faker'
-USERS_COUNT = 10
-POSTS_COUNT_PER_USER = 3
-COMMENT_COUNTS = 10
-CHATS_COUNT = 20
 
-MESSAGES_PER_CHAT_COUNT = 5
-SAVED_POSTS_PER_USER = 4
-FOLLOWERS_TOTAL_COUNT = 10
+user = User.new(username: 'system', password: '123123', email: 'system@test.com')
+user.skip_confirmation!
+user.save
+user2 = User.new(username: 'system2', password: '123123', email: 'system2@test.com')
+user2.skip_confirmation!
+user2.save
 
-USERS_COUNT.times do |i|
-  user = User.new(username: "testname_#{i}", password: '123123', email: "test_#{i}@example.com")
-  user.skip_confirmation!
-  user.save
-  POSTS_COUNT_PER_USER.times do
-    post = Post.new(user_id: user.id)
-    post.picture.attach(io: File.open("#{Rails.root}/app/assets/images/default_preview.png"),
-                        filename: 'default_preview.png', content_type: 'image/png')
-    post.save
-  end
+post = Post.new(user_id: user.id, tags: '#testcase')
+post.picture.attach(io: File.open("#{Rails.root}/spec/images/test.png"),
+                    filename: 'test.png', content_type: 'image/png')
+post.save
+
+comment = Comment.create(post_id: post.id, user_id: user.id, body: Faker::ChuckNorris.fact)
+user.like(comment)
+
+room_name = 'private_1_2'
+room = Room.create_or_find_by(name: room_name)
+
+Participant.create(initiator_id: user.id, recipient_id: user2.id, room_id: room.id)
+Message.create(user_id: user.id, room_id: room.id, body: Faker::Hacker.say_something_smart)
+CollectionSavedPost.create(user_id: user.id, post_id: 1)
+Relationship.create_or_find_by(follower_id: user.id, followee_id: user2.id)
+
+5.times do |i|
+  ex_user = User.new(username: "system#{i}", password: '123123', email: "system#{i}@test.com")
+  ex_user.skip_confirmation!
+  ex_user.save
 end
 
-COMMENT_COUNTS.times do
-  post_id = rand(1..POSTS_COUNT_PER_USER) * rand(1..USERS_COUNT)
-  user_id = rand(1..USERS_COUNT)
-  comment = Comment.create(post_id: post_id, user_id: user_id, body: Faker::ChuckNorris.fact)
-  User.find(rand(1..USERS_COUNT)).like(comment) if rand(3) == 1
-end
+room = Room.create_room(User.first, User.find(3), ['private_1_3'])
+Message.create(user_id: 1, room_id: room.id, body: Faker::Hacker.say_something_smart)
+Message.create(user_id: 3, room_id: room.id, body: Faker::Hacker.say_something_smart)
 
-CHATS_COUNT.times do
-  user1_id = rand(1..USERS_COUNT)
-  user2_id = rand(1..USERS_COUNT)
-  room_name = "private_#{user1_id}_#{user2_id}"
-  room = Room.create_or_find_by(name: room_name)
-  Participant.create(initiator_id: user1_id, recipient_id: user2_id, room_id: room.id)
-  MESSAGES_PER_CHAT_COUNT.times do
-    Message.create(user_id: user1_id, room_id: room.id, body: Faker::Hacker.say_something_smart)
-  end
-end
+room = Room.create_room(User.find(4), User.first,  ['private_4_1'])
+Message.create(user_id: 1, room_id: room.id, body: Faker::Hacker.say_something_smart)
+Message.create(user_id: 1, room_id: room.id, body: Faker::Hacker.say_something_smart)
+Message.create(user_id: 4, room_id: room.id, body: Faker::Hacker.say_something_smart)
+Message.create(user_id: 4, room_id: room.id, body: Faker::Hacker.say_something_smart)
+Message.create(user_id: 4, room_id: room.id, body: Faker::Hacker.say_something_smart)
 
-SAVED_POSTS_PER_USER.times do
-  CollectionSavedPost.create(user_id: rand(1..USERS_COUNT), post_id: rand(1..POSTS_COUNT_PER_USER)*rand(1..USERS_COUNT))
-end
 
-FOLLOWERS_TOTAL_COUNT.times do
-  user = rand(1..USERS_COUNT)
-  user2 = user + 1
-  Relationship.create_or_find_by(follower_id: user, followee_id: user2)
-end
+# USERS_COUNT = 10
+# POSTS_COUNT_PER_USER = 3
+# COMMENT_COUNTS = 10
+# CHATS_COUNT = 20
+
+# MESSAGES_PER_CHAT_COUNT = 5
+# SAVED_POSTS_PER_USER = 4
+# FOLLOWERS_TOTAL_COUNT = 10
+
+# USERS_COUNT.times do |i|
+#   user = User.new(username: "testname_#{i}", password: '123123', email: "test_#{i}@example.com")
+#   user.skip_confirmation!
+#   user.save
+#   POSTS_COUNT_PER_USER.times do
+#     post = Post.new(user_id: user.id)
+#     post.picture.attach(io: File.open("#{Rails.root}/app/assets/images/default_preview.png"),
+#                         filename: 'default_preview.png', content_type: 'image/png')
+#     post.save
+#   end
+# end
+
+# COMMENT_COUNTS.times do
+#   post_id = rand(1..POSTS_COUNT_PER_USER) * rand(1..USERS_COUNT)
+#   user_id = rand(1..USERS_COUNT)
+#   comment = Comment.create(post_id: post_id, user_id: user_id, body: Faker::ChuckNorris.fact)
+#   User.find(rand(1..USERS_COUNT)).like(comment) if rand(3) == 1
+# end
+
+# CHATS_COUNT.times do
+#   user1_id = rand(1..USERS_COUNT)
+#   user2_id = rand(1..USERS_COUNT)
+#   room_name = "private_#{user1_id}_#{user2_id}"
+#   room = Room.create_or_find_by(name: room_name)
+#   Participant.create(initiator_id: user1_id, recipient_id: user2_id, room_id: room.id)
+#   MESSAGES_PER_CHAT_COUNT.times do
+#     Message.create(user_id: user1_id, room_id: room.id, body: Faker::Hacker.say_something_smart)
+#   end
+# end
+
+# SAVED_POSTS_PER_USER.times do
+#   CollectionSavedPost.create(user_id: rand(1..USERS_COUNT), post_id: rand(1..POSTS_COUNT_PER_USER)*rand(1..USERS_COUNT))
+# end
+
+# FOLLOWERS_TOTAL_COUNT.times do
+#   user = rand(1..USERS_COUNT)
+#   user2 = user + 1
+#   Relationship.create_or_find_by(follower_id: user, followee_id: user2)
+# end

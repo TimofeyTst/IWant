@@ -16,7 +16,7 @@
         
         <div class="big_text">
           <div class="field">
-            <% unless post.description.empty? %>
+            <% unless post.description&.empty? %>
               <p><%= (t "Writing") %>:</p>
               <p><%= post.description %></p>
             <% end %>

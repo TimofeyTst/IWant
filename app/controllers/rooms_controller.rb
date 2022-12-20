@@ -20,7 +20,7 @@ class RoomsController < ApplicationController
     @user = User.find(params[:id])
     @users = current_user.initiators + current_user.recipients
 
-    @room_name = get_name(@user)
+    @room_name = [get_name(@user), get_name(current_user, @user)]
     @single_room = Room.where(name: @room_name).first || Room.create_room(current_user, @user, @room_name)
 
     @message = Message.new

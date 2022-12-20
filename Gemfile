@@ -76,9 +76,11 @@ group :development do
   # gem "spring"
 end
 
-gem "ransack", "~> 3.2"
+gem 'ransack', '~> 3.2'
 
 group :test do
+  gem 'capybara'
   gem 'faker'
-  gem "rspec-rails", "~> 6.0"
+  gem 'rspec-rails', '~> 6.0'
+  gem 'webdrivers'
 end
