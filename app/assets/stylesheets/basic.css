@@ -79,9 +79,6 @@ input[type="file"]::-webkit-file-upload-button:hover {
     color: var(--back-light-color);
     background: var(--back-vsp-color);
 }
-input[type="file"]{
-    /* color: transparent; */
-}
 textarea {
     resize: none;
     height: 15vw;
