@@ -84,3 +84,5 @@ group :test do
   gem 'rspec-rails', '~> 6.0'
   gem 'webdrivers'
 end
+
+gem "followability", "~> 1.1"

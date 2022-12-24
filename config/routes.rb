@@ -12,10 +12,11 @@ Rails.application.routes.draw do
     get 'profile/:id', to: 'profile#show', as: 'profile'
     delete 'profile/avatar', to: 'profile#destroy_avatar'
 
-    post 'profile/follow', to: 'profile#follow'
-    delete 'profile/unfollow', to: 'profile#unfollow'
+    post 'profile/:id/follow', to: 'profile#follow', as: 'profile_follow'
+    delete 'profile/:id/unfollow', to: 'profile#unfollow', as: 'profile_unfollow'
     get 'profile/:id/followers', to: 'profile#followers', as: 'profile_followers'
-    get 'profile/:id/followees', to: 'profile#followees', as: 'profile_followees'
+    get 'profile/:id/following', to: 'profile#following', as: 'profile_following'
+
     put 'profile/:id/theme', to: 'profile#theme', as: 'profile_theme'
 
     get 'albums', to: 'interests#show', as: 'albums'
@@ -38,9 +39,5 @@ Rails.application.routes.draw do
     get 'chats', to: 'rooms#index', as: 'chats'
     get 'chat/:id', to: 'rooms#show', as: 'chat'
     post 'chat/:id', to: 'rooms#create', as: 'chat_create'
-    # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-    # Defines the root path route ("/")
-    # root "articles#index"
   end
 end

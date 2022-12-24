@@ -16,9 +16,9 @@ RSpec.describe 'Posts', type: :system do
     scenario 'success while deleting' do
       count_before = Post.all.count
       visit post_path(id: 1)
-      sleep(2)
+      sleep(0.3)
       find('.line .button.delete').click
-      sleep(2)
+      sleep(0.3)
 
       expect(count_before - Post.all.count).to eq(1)
     end

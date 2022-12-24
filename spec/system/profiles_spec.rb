@@ -39,11 +39,11 @@ RSpec.describe 'Profiles', type: :system do
       expect(current_path).to eq(profile_followers_path(id: User.first.id, locale: I18n.locale))
     end
 
-    scenario 'trying to see followees' do
+    scenario 'trying to see following' do
       visit profile_path(id: User.first.id)
-      find('.followees_btn').click
+      find('.following_btn').click
       sleep(0.3)
-      expect(current_path).to eq(profile_followees_path(id: User.first.id, locale: I18n.locale))
+      expect(current_path).to eq(profile_following_path(id: User.first.id, locale: I18n.locale))
     end
 
     scenario 'trying to follow and unfollow' do
@@ -136,11 +136,11 @@ RSpec.describe 'Profiles', type: :system do
       find('.form-button .button.update').click
       sleep(0.3)
       visit profile_path(id: 1)
-      sleep(0.5)
+      sleep(0.3)
       find('.profile_settings .main').click
-      sleep(0.5)
+      sleep(0.3)
       find('.profile_settings .menu .round-line:nth-child(3) .button_to').click
-      sleep(0.5)
+      sleep(0.3)
       visit new_user_session_path
       fill_in :user_username, with: 'system'
       fill_in :user_password, with: '123123123'

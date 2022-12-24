@@ -1,7 +1,7 @@
 class ProfileController < ApplicationController
   include ProfileHelper
 
-  before_action :set_user, only: %i[show follow unfollow followers followees theme]
+  before_action :set_user, only: %i[show follow unfollow followers following theme]
   skip_before_action :authenticate_user!, only: :show
 
   def show
@@ -13,8 +13,8 @@ class ProfileController < ApplicationController
     @users_by_three = arr_by_three_columns(@user.followers)
   end
 
-  def followees
-    @users_by_three = arr_by_three_columns(@user.followees)
+  def following
+    @users_by_three = arr_by_three_columns(@user.following)
   end
 
   def destroy_avatar
@@ -27,7 +27,9 @@ class ProfileController < ApplicationController
   end
 
   def follow
-    Relationship.create_or_find_by(follower_id: current_user.id, followee_id: @user.id)
+    current_user.send_follow_request_to(@user)
+    @user.accept_follow_request_of(current_user)
+
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: private_stream
@@ -36,7 +38,8 @@ class ProfileController < ApplicationController
   end
 
   def unfollow
-    current_user.followed_users.where(follower_id: current_user.id, followee_id: @user.id).destroy_all
+    current_user.unfollow(@user)
+
     respond_to do |format|
       format.turbo_stream do
         render turbo_stream: private_stream

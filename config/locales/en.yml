@@ -130,11 +130,11 @@ en:
     many: "%{count} followers"
     other: "%{count} followers"
 
-  followees:
-    one: "%{count} followee"
-    few: "%{count} followees"
-    many: "%{count} followees"
-    other: "%{count} followees"
+  following:
+    one: "%{count} following"
+    few: "%{count} following"
+    many: "%{count} following"
+    other: "%{count} following"
 
   Unfollow: "Unfollow" 
   Follow: "Follow" 

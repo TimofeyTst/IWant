@@ -51,18 +51,18 @@ class InterestsController < ApplicationController
       search = Post.ransack({ 'tags_start' => tag }).result(distinct: true)
       @posts += search unless search.nil?
     end
-    @users.reject { |user| current_user.followees.include?(user) }
+    @users.reject { |user| current_user.following.include?(user) }
     @posts.uniq!
   end
 
   def generate_tags_and_usernames
-    @followees = current_user.followees
+    @following = current_user.following
     @saved_posts = current_user.saved_posts
     @sorted_comments = Comment.all.sort_by { |el| -el.likes.count }[0..20]
     # Generate (1+1 + 4*(2+2+1)) tags from posts
     from_last_post
     4.times do
-      from_followees
+      from_following
       from_saved
       from_comments
     end
@@ -76,9 +76,9 @@ class InterestsController < ApplicationController
     @users = [query.user]
   end
 
-  def from_followees
+  def from_following
     2.times do
-      query = @followees&.sample&.posts&.sample&.tags&.split
+      query = @following&.sample&.posts&.sample&.tags&.split
       @tags += query unless query.nil?
     end
   end

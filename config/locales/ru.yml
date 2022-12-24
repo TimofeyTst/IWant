@@ -162,7 +162,7 @@ ru:
     many: "%{count} Подписчиков"
     other: "%{count} Подписчиков"
 
-  followees:
+  following:
     one: "%{count} Подписка"
     few: "%{count} Подписки"
     many: "%{count} Подписок"

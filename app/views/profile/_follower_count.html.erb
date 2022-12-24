@@ -2,6 +2,6 @@
   <div class="line center">
         <%= link_to (t "followers", count: user.followers.count), profile_followers_path(user), class: 'purple-link followers_btn' %>
     <div class="round-between"></div>
-        <%= link_to (t "followees", count: user.followees.count), profile_followees_path(user), class: 'purple-link followees_btn' %> 
+        <%= link_to (t "following", count: user.following.count), profile_following_path(user), class: 'purple-link following_btn' %> 
   </div>
 <% end %>

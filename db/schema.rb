@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_18_171510) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_24_155119) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -58,6 +58,18 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_18_171510) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "followability_relationships", force: :cascade do |t|
+    t.string "followerable_type", null: false
+    t.integer "followerable_id", null: false
+    t.string "followable_type", null: false
+    t.integer "followable_id", null: false
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["followable_type", "followable_id"], name: "index_followability_relationships_on_followable"
+    t.index ["followerable_type", "followerable_id"], name: "index_followability_relationships_on_followerable"
+  end
+
   create_table "likeables", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "comment_id", null: false
@@ -93,13 +105,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_18_171510) do
     t.datetime "updated_at", null: false
     t.string "tags"
     t.index ["user_id"], name: "index_posts_on_user_id"
-  end
-
-  create_table "relationships", force: :cascade do |t|
-    t.integer "follower_id"
-    t.integer "followee_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "rooms", force: :cascade do |t|

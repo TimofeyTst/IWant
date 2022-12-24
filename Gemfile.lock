@@ -98,6 +98,7 @@ GEM
     faker (3.0.0)
       i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
+    followability (1.1.1)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -238,6 +239,8 @@ GEM
       railties (>= 6.0.0)
     tzinfo (2.0.5)
       concurrent-ruby (~> 1.0)
+    user_preferences (1.0.2)
+      activerecord (>= 4.0)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.0)
@@ -267,6 +270,7 @@ DEPENDENCIES
   debug
   devise
   faker
+  followability (~> 1.1)
   image_processing (~> 1.2)
   importmap-rails
   inline_svg
@@ -282,6 +286,7 @@ DEPENDENCIES
   stimulus-rails
   turbo-rails
   tzinfo-data
+  user_preferences
   web-console
   webdrivers
 

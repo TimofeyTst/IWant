@@ -5,39 +5,15 @@ class User < ApplicationRecord
          :recoverable, :validatable, :confirmable,
          :lockable, :trackable
 
-  # scope :all_except, ->(user) { initiators + recipients }
-  has_many :messages, dependent: :destroy
-
-  enum theme: %i[dark light]
+  followability
 
   has_one_attached :avatar
+  has_many :messages, dependent: :destroy
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
 
   has_many :likeables, dependent: :destroy
   has_many :liked_comments, through: :likeables, source: :comment
-
-  # This access the Relationship object
-  has_many :followed_users,
-           foreign_key: :follower_id,
-           class_name: 'Relationship',
-           dependent: :destroy
-
-  # This accesses the user through the relationship object
-  has_many :followees,
-           through: :followed_users,
-           dependent: :destroy
-
-  # This access the Relationship object
-  has_many :following_users,
-           foreign_key: :followee_id,
-           class_name: 'Relationship',
-           dependent: :destroy
-
-  # This accesses the user through the relationship object
-  has_many :followers,
-           through: :following_users,
-           dependent: :destroy
 
   # This access the Participant object
   has_many :initiatoring_users,
@@ -67,6 +43,8 @@ class User < ApplicationRecord
 
   has_many :saved_posts, source: :post, through: :CollectionSavedPost
 
+  enum theme: %i[dark light]
+
   validates :email,
             presence: true,
             uniqueness: true
@@ -74,6 +52,10 @@ class User < ApplicationRecord
             presence: true,
             uniqueness: true,
             length: { minimum: 2 }
+
+  def unfollow(user)
+    followerable_relationships.where(followable_id: user.id).destroy_all
+  end
 
   def liked?(comment)
     liked_comments.include?(comment)

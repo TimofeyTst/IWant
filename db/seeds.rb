@@ -32,7 +32,6 @@ room = Room.create_or_find_by(name: room_name)
 Participant.create(initiator_id: user.id, recipient_id: user2.id, room_id: room.id)
 Message.create(user_id: user.id, room_id: room.id, body: Faker::Hacker.say_something_smart)
 CollectionSavedPost.create(user_id: user.id, post_id: 1)
-Relationship.create_or_find_by(follower_id: user.id, followee_id: user2.id)
 
 5.times do |i|
   ex_user = User.new(username: "system#{i}", password: '123123', email: "system#{i}@test.com")
