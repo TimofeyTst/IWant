@@ -95,18 +95,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_18_171510) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
-  create_table "preferences", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.string "category", null: false
-    t.string "name", null: false
-    t.integer "value", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["category", "name", "value"], name: "index_preferences_on_category_and_name_and_value"
-    t.index ["user_id", "category"], name: "index_preferences_on_user_id_and_category"
-    t.index ["user_id"], name: "index_preferences_on_user_id"
-  end
-
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
     t.integer "followee_id"
