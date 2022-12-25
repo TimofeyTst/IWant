@@ -36,13 +36,6 @@
     <%= render 'layouts/footer' %>
   </body>
   <script>
-  
-    imgInp.onchange = evt => {
-    const [file] = imgInp.files
-    if (file) {
-        blah.src = URL.createObjectURL(file)
-    }
-    }
 
     function toggle_open(el) {
       el.classList.toggle('open');

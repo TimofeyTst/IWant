@@ -47,7 +47,6 @@ button {
     font-weight: 600;
     padding: 4px 8px;
     transition: 0.5s;
-    font-synthesis: 16px;
 
     cursor: pointer;
     color: var(--link-color);

@@ -102,7 +102,6 @@
     padding: 6px 12px;
     transition: 0.5s;
 
-    font-synthesis: 16px;
     cursor: pointer;
     color: var(--back-vsp-color);
     background: var(--back-button-color);

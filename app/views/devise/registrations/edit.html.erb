@@ -37,10 +37,10 @@
     <div class="row">
       <div class="field">
         <%= f.label :avatar, (t 'Profile photo') %>
-        <%= f.file_field :avatar, :id => "imgInp" %>
+        <%= f.file_field :avatar, :id => "imgInp", data: { controller: "img-preview" } %>
       </div>
       <div class="field">
-        <%= image_tag 'default_preview.png', id: 'blah', alt: "Preview", class: 'avatar-mini' %>
+        <%= image_tag 'default_preview.png', id: 'preview', class: 'avatar-mini' %>
       </div>
     </div>
 

@@ -26,14 +26,14 @@
       <div class="right">
         <div class="field">
           <% @image_src ||= 'default_preview.png' %>
-          <%= image_tag @image_src, id: 'blah', class: 'post_picture_big' %>
+          <%= image_tag @image_src, id: 'preview', class: 'post_picture_big' %>
         </div>
       </div>
     </div>
 
     <div class="bottom">
       <div class="field">
-        <%= form.file_field :picture, :id => "imgInp" %>
+        <%= form.file_field :picture, :id => "imgInp", data: { controller: "img-preview" } %>
       </div>   
       <div class="field">
         <%= form.submit (t 'Save'), class: 'button' %>
