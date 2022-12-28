@@ -27,7 +27,7 @@ comment = Comment.create(post_id: post.id, user_id: user.id, body: Faker::ChuckN
 user.like(comment)
 
 chat_name = 'private_1_2'
-chat = Chat.create(initiator: user, recipient: user2, name: [chat_name])
+chat = Chat.create(initiator: user, recipient: user2, name: chat_name)
 
 Message.create(user_id: user.id, chat_id: chat.id, body: Faker::Hacker.say_something_smart)
 CollectionSavedPost.create(user_id: user.id, post_id: 1)
@@ -38,11 +38,11 @@ CollectionSavedPost.create(user_id: user.id, post_id: 1)
   ex_user.save
 end
 
-chat = Chat.create(initiator: User.find(1), recipient: User.find(3), name: ['private_1_3'])
+chat = Chat.create(initiator: User.find(1), recipient: User.find(3), name: 'private_1_3')
 Message.create(user_id: 1, chat_id: chat.id, body: Faker::Hacker.say_something_smart)
 Message.create(user_id: 3, chat_id: chat.id, body: Faker::Hacker.say_something_smart)
 
-chat = Chat.create(initiator: User.find(4), recipient: User.find(1), name: ['private_4_1'])
+chat = Chat.create(initiator: User.find(4), recipient: User.find(1), name: 'private_4_1')
 Message.create(user_id: 1, chat_id: chat.id, body: Faker::Hacker.say_something_smart)
 Message.create(user_id: 1, chat_id: chat.id, body: Faker::Hacker.say_something_smart)
 Message.create(user_id: 4, chat_id: chat.id, body: Faker::Hacker.say_something_smart)
