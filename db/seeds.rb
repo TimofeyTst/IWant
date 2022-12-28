@@ -26,11 +26,10 @@ post.save
 comment = Comment.create(post_id: post.id, user_id: user.id, body: Faker::ChuckNorris.fact)
 user.like(comment)
 
-room_name = 'private_1_2'
-room = Room.create_or_find_by(name: room_name)
+chat_name = 'private_1_2'
+chat = Chat.create(initiator: user, recipient: user2, name: [chat_name])
 
-Participant.create(initiator_id: user.id, recipient_id: user2.id, room_id: room.id)
-Message.create(user_id: user.id, room_id: room.id, body: Faker::Hacker.say_something_smart)
+Message.create(user_id: user.id, chat_id: chat.id, body: Faker::Hacker.say_something_smart)
 CollectionSavedPost.create(user_id: user.id, post_id: 1)
 
 5.times do |i|
@@ -39,16 +38,16 @@ CollectionSavedPost.create(user_id: user.id, post_id: 1)
   ex_user.save
 end
 
-room = Room.create_room(User.first, User.find(3), ['private_1_3'])
-Message.create(user_id: 1, room_id: room.id, body: Faker::Hacker.say_something_smart)
-Message.create(user_id: 3, room_id: room.id, body: Faker::Hacker.say_something_smart)
+chat = Chat.create(initiator: User.find(1), recipient: User.find(3), name: ['private_1_3'])
+Message.create(user_id: 1, chat_id: chat.id, body: Faker::Hacker.say_something_smart)
+Message.create(user_id: 3, chat_id: chat.id, body: Faker::Hacker.say_something_smart)
 
-room = Room.create_room(User.find(4), User.first,  ['private_4_1'])
-Message.create(user_id: 1, room_id: room.id, body: Faker::Hacker.say_something_smart)
-Message.create(user_id: 1, room_id: room.id, body: Faker::Hacker.say_something_smart)
-Message.create(user_id: 4, room_id: room.id, body: Faker::Hacker.say_something_smart)
-Message.create(user_id: 4, room_id: room.id, body: Faker::Hacker.say_something_smart)
-Message.create(user_id: 4, room_id: room.id, body: Faker::Hacker.say_something_smart)
+chat = Chat.create(initiator: User.find(4), recipient: User.find(1), name: ['private_4_1'])
+Message.create(user_id: 1, chat_id: chat.id, body: Faker::Hacker.say_something_smart)
+Message.create(user_id: 1, chat_id: chat.id, body: Faker::Hacker.say_something_smart)
+Message.create(user_id: 4, chat_id: chat.id, body: Faker::Hacker.say_something_smart)
+Message.create(user_id: 4, chat_id: chat.id, body: Faker::Hacker.say_something_smart)
+Message.create(user_id: 4, chat_id: chat.id, body: Faker::Hacker.say_something_smart)
 
 
 # USERS_COUNT = 10

@@ -18,7 +18,7 @@ class User < ApplicationRecord
   # This access the Participant object
   has_many :initiatoring_users,
            foreign_key: :initiator_id,
-           class_name: 'Participant',
+           class_name: 'Chat',
            dependent: :destroy
 
   # This accesses the user through the participant object
@@ -30,7 +30,7 @@ class User < ApplicationRecord
   # This access the Participant object
   has_many :recipient_users,
            foreign_key: :recipient_id,
-           class_name: 'Participant',
+           class_name: 'Chat',
            dependent: :destroy
 
   # This accesses the user through the participant object

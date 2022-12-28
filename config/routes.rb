@@ -33,11 +33,9 @@ Rails.application.routes.draw do
       resources :comments, only: %i[create destroy]
     end
 
-    resources :rooms, only: :show do
-      resources :messages, only: :create
-    end
-    get 'chats', to: 'rooms#index', as: 'chats'
-    get 'chat/:id', to: 'rooms#show', as: 'chat'
-    post 'chat/:id', to: 'rooms#create', as: 'chat_create'
+    get 'chats', to: 'chats#index', as: 'chats'
+    get 'chat/:id', to: 'chats#show', as: 'chat'
+    post 'chat/:id/messages', to: 'messages#create', as: 'chat_messages'
+    post 'chat/:id', to: 'chats#create', as: 'chat_create'
   end
 end

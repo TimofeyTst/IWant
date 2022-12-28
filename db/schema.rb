@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_24_155119) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_25_142428) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -37,6 +37,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_24_155119) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  end
+
+  create_table "chats", force: :cascade do |t|
+    t.string "name"
+    t.integer "initiator_id", null: false
+    t.integer "recipient_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "collection_saved_posts", force: :cascade do |t|
@@ -81,21 +89,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_24_155119) do
 
   create_table "messages", force: :cascade do |t|
     t.integer "user_id", null: false
-    t.integer "room_id", null: false
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_messages_on_room_id"
+    t.integer "chat_id", null: false
     t.index ["user_id"], name: "index_messages_on_user_id"
-  end
-
-  create_table "participants", force: :cascade do |t|
-    t.integer "initiator_id", null: false
-    t.integer "recipient_id", null: false
-    t.integer "room_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["room_id"], name: "index_participants_on_room_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -105,12 +103,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_24_155119) do
     t.datetime "updated_at", null: false
     t.string "tags"
     t.index ["user_id"], name: "index_posts_on_user_id"
-  end
-
-  create_table "rooms", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -133,7 +125,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_24_155119) do
     t.integer "failed_attempts", default: 0, null: false
     t.string "unlock_token"
     t.datetime "locked_at"
-    t.integer "theme", default: 1
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
@@ -148,8 +139,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_24_155119) do
   add_foreign_key "comments", "users"
   add_foreign_key "likeables", "comments"
   add_foreign_key "likeables", "users"
-  add_foreign_key "messages", "rooms"
   add_foreign_key "messages", "users"
-  add_foreign_key "participants", "rooms"
   add_foreign_key "posts", "users"
 end
