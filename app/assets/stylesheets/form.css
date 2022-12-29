@@ -103,7 +103,7 @@
     transition: 0.5s;
 
     cursor: pointer;
-    color: var(--back-vsp-color);
+    color: var(--link-color);
     background: var(--back-button-color);
 }
 .form-button .button:hover{
