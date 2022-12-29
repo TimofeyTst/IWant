@@ -6,4 +6,8 @@ module ApplicationHelper
     end
     result
   end
+
+  def toggled_theme
+    current_user.theme == 'light' ? 'dark' : 'light'
+  end
 end

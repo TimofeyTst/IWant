@@ -1,0 +1,15 @@
+<div class="round-line d-none" id="avatar_form">
+<%= form_with(model: current_user, url: settings_avatar_update_path, html: { method: :put }) do |f| %>
+    <div class="field">
+      <%= f.label :avatar, (t 'Profile photo') %>
+      <%= f.file_field :avatar, :id => "imgInp", data: { controller: "img-preview" } %>
+    </div>
+    <div class="field ">
+      <%= image_tag 'default_preview.png', id: 'preview', class: 'avatar-mini' %>
+    </div>
+
+  <div class="field form-button">
+    <%= f.submit (t "Update"), class: 'button update' %>
+  </div>
+<% end %>
+</div>

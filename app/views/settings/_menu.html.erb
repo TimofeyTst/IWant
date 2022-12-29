@@ -1,0 +1,20 @@
+<div class="book">
+  <div class="left settings_form">
+    <div class="line">
+        <%= link_to (t "Public profile"), settings_path %>
+    </div>
+
+    <div class="line">
+        <%= link_to (t "Change email"), settings_email_path %>
+    </div>
+    <div class="line">
+        <%= link_to (t "Change password"), settings_password_path %>
+    </div>
+    <div class="line">
+        <%= link_to (t "Preferences"), settings_preferences_path %>
+    </div>
+  </div>
+  <div class="right">
+      <%= yield %>
+  </div>
+</div>

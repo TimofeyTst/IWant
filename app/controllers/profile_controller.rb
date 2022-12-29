@@ -17,13 +17,7 @@ class ProfileController < ApplicationController
     @users_by_three = arr_by_three_columns(@user.following)
   end
 
-  def destroy_avatar
-    current_user.avatar.destroy
-
-    respond_to do |format|
-      format.html { redirect_to profile_path(current_user), notice: 'Avatar was deleted.' }
-      format.json { head :no_content }
-    end
+  def settings
   end
 
   def follow
@@ -44,14 +38,6 @@ class ProfileController < ApplicationController
       format.turbo_stream do
         render turbo_stream: private_stream
       end
-    end
-  end
-
-  def theme
-    current_user.update(theme: toggled_theme)
-    redirect_to profile_path(current_user), notice: 'Theme changed. Please refresh the page'
-    respond_to do |format|
-      format.js { render inline: 'location.reload();' }
     end
   end
 

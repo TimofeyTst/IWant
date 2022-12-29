@@ -30,19 +30,21 @@
 
     <div class="field">
       <%= f.label :current_password %>
-      <%= f.password_field :current_password, autocomplete: "current-password", required: "" %>
+      <%= f.password_field :current_password, autocomplete: "current-password" %>
       <span></span>
     </div>
 
-    <div class="row">
-      <div class="field">
-        <%= f.label :avatar, (t 'Profile photo') %>
-        <%= f.file_field :avatar, :id => "imgInp", data: { controller: "img-preview" } %>
+    <%= turbo_frame_tag "avatar_form" do %>
+      <div class="row">
+        <div class="field">
+          <%= f.label :avatar, (t 'Profile photo') %>
+          <%= f.file_field :avatar, :id => "imgInp", data: { controller: "img-preview" } %>
+        </div>
+        <div class="field">
+          <%= image_tag 'default_preview.png', id: 'preview', class: 'avatar-mini' %>
+        </div>
       </div>
-      <div class="field">
-        <%= image_tag 'default_preview.png', id: 'preview', class: 'avatar-mini' %>
-      </div>
-    </div>
+    <% end %>
 
     <div class="form-button">
       <%= f.submit (t "Update"), class: 'button update' %>
@@ -59,7 +61,7 @@
   <% if current_user.avatar.attached? %>
     <div class="line">
       <div><%=(t "Don`t emplore your avatar photo?")%></div>
-      <%= button_to (t "Delete avatar picture"), profile_avatar_path, data: { confirm: "Are you sure?" }, method: :delete, class: 'button delete avatar' %>
+      <%= button_to (t "Delete avatar picture"), settings_avatar_destroy_path, data: { confirm: "Are you sure?" }, method: :delete, class: 'button delete avatar' %>
     </div>  
   <% end %>
   <div class="line">

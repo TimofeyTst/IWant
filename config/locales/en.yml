@@ -84,7 +84,7 @@ en:
       
   Log out: "Log out"
   Log in: "Log in"
-  Edit profile: "Edit profile"
+  Change avatar: "Change avatar"
   Edit: "Edit"
   Profile: "Profile"
   'Tags #': "Tags #"      
@@ -175,6 +175,17 @@ en:
   Create message: "Send"
   Write here: "Write here..."
 
-
+  Settings: "Settings"
+  Public profile: "Public profile"
+  Change email: "Change email"
+  Change password: "Change password"
+  Preferences: "Preferences"
+  Email: "Email"
+  Password: "Password"
+  Select language: "Select language"
+  Change theme: "Change theme"
+  English: "English"
+  Russian: "Russian"
+  Photo: "Photo"
   
   

@@ -1,0 +1,13 @@
+<%= render 'settings/menu' do %>
+  <h2><%= (t "Preferences") %></h2>
+  <div class="line d-start">
+      <p><%= (t "Select language") %></p>
+      <%= link_to (t "English"), url_for( :locale => 'en' ), class: 'menu-button' %>
+      <%= link_to (t "Russian"), url_for( :locale => 'ru' ), class: 'menu-button' %>
+  </div>
+  <div class="line d-start">
+      <p><%= (t "Change theme") %></p>
+      <% image_src = "#{toggled_theme}.svg" %>
+      <%= button_to inline_svg_tag(image_src, class: 'theme-button svg-picture'), settings_theme_path, method: :put, class: "change_theme menu-button" %>
+  </div>
+<% end %>

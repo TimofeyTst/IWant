@@ -8,16 +8,23 @@ Rails.application.routes.draw do
     # POST like_comment_path(comment)
     post 'like/id', to: 'comments#like', as: 'like_comment'
 
+    # Settings paths
+    get 'settings', to: 'settings#public_profile', as: 'settings'
+    get 'settings_email', to: 'settings#email', as: 'settings_email'
+    get 'settings_password', to: 'settings#password', as: 'settings_password'
+    get 'settings_preferences', to: 'settings#preferences', as: 'settings_preferences'
+
+    put 'avatar', to: 'settings#avatar_update', as: 'settings_avatar_update'
+    delete 'avatar', to: 'settings#avatar_destroy', as: 'settings_avatar_destroy'
+    put 'theme', to: 'settings#theme', as: 'settings_theme'
+
     # Profile paths
     get 'profile/:id', to: 'profile#show', as: 'profile'
-    delete 'profile/avatar', to: 'profile#destroy_avatar'
 
     post 'profile/:id/follow', to: 'profile#follow', as: 'profile_follow'
     delete 'profile/:id/unfollow', to: 'profile#unfollow', as: 'profile_unfollow'
     get 'profile/:id/followers', to: 'profile#followers', as: 'profile_followers'
     get 'profile/:id/following', to: 'profile#following', as: 'profile_following'
-
-    put 'profile/:id/theme', to: 'profile#theme', as: 'profile_theme'
 
     get 'albums', to: 'interests#show', as: 'albums'
     get 'interests/saved'

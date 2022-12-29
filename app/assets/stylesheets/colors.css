@@ -42,7 +42,7 @@ html[data-color-mode="light"] {
     
         --back-color: #e6e9e9;
         --back-vsp-color: #c2c2c2;
-        --back-button-color: #2b2a2a;
+        --back-button-color: rgb(85, 85, 85, 0.1);
     
         --light-text-color: #000000;
         --error-text-color: rgb(248, 86, 221);

@@ -1,0 +1,22 @@
+<%= render 'settings/menu' do %>
+  <h2><%= (t "Email") %></h2>
+  <div class="round-line">
+    <%= form_for(current_user, as: current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: current_user %>
+
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.text_field :email, autocomplete: "email" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :current_password %>
+      <%= f.password_field :current_password, autocomplete: "current-password" %>
+    </div>
+
+    <div class="field form-button">
+      <%= f.submit (t "Update"), class: 'button update' %>
+    </div>
+    <% end %>
+  </div>
+<% end %>

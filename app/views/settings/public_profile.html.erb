@@ -1,0 +1,45 @@
+<%= render 'settings/menu' do %>
+  <h2><%= (t "Public profile") %></h2>
+  <div class="field">
+    <div class="label"><%= (t "Photo") %></div>
+    <div class="round-line">
+        <% if current_user.avatar.attached? %>
+            <%= image_tag current_user.avatar, class: "avatar-mini"%>
+        <% else %>
+            <%= image_tag 'default_avatar.jpg', class: "avatar-mini" %>
+        <% end %>
+        <div class="round-line">
+            <%= link_to (t "Change"), nil, remote: true,
+                data: { controller: "settings", 
+                        action: "click->settings#toggle_display" }, class: "button" %>
+            <%= button_to (t "Delete"), settings_avatar_destroy_path, method: :delete, class: 'button delete avatar' %>
+        </div>
+    </div>
+    <%= render 'settings/avatar_form' %>
+  </div>
+
+  <div class="round-line" id="public_form">
+      <%= form_for(current_user, as: current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: current_user %>
+  
+      <div class="field">
+        <%= f.label :username %>
+        <%= f.text_field :username, autocomplete: "new-password" %>
+      </div>
+  
+      <div class="field">
+        <%= f.label :current_password %>
+        <%= f.password_field :current_password, autocomplete: "current-password" %>
+      </div>
+  
+      <div class="field form-button">
+        <%= f.submit (t "Update"), class: 'button update' %>
+      </div>
+      <div class="field form-button">
+        <%= button_to (t "Delete my account"), registration_path(current_user), data: { confirm: "Are you sure?" }, method: :delete, class: 'button delete_account' %>
+      </div> 
+      <% end %>
+  </div>
+<% end %>
+
+  
