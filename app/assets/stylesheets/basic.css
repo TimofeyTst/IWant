@@ -65,7 +65,7 @@ input[type="file"]::-webkit-file-upload-button {
     font-size: 16px;
     font-weight: 600;
     background: var(--back-button-color);
-    color: var(--back-vsp-color);
+    color: var(--link-color);
     outline: none;
     border: none;
     cursor: pointer;

@@ -260,7 +260,7 @@
     transition: 0.5s;
 
     cursor: pointer;
-    color: var(--back-vsp-color);
+    color: var(--link-color);
     background: var(--back-button-color);
 }
 .comment_form textarea {
@@ -337,7 +337,6 @@
     font-size: 15px;
 }
 .container .book .field input{
-    width: 38vw;
     outline: none;
     border: 2px solid var(--back-vsp-color);
     background: transparent;
@@ -346,6 +345,9 @@
     padding: 6px 12px;
     margin: 6px 0px;
     font-size: 18px;
+}
+.wide{
+    width:38vw;
 }
 .container .book .field input:focus{
     outline: 3px solid var(--blue-color)
@@ -361,7 +363,7 @@
 }
 .container .book .button.delete_account {
     color: #c00000;
-    width: 20vw;
+    width: 15vw;
 }
 .container .book .button.delete_account:hover,
 .container .book .button.delete:hover {

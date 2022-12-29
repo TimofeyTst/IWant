@@ -4,12 +4,12 @@
     <%= form_for(current_user, as: current_user, url: registration_path(current_user), html: { method: :put }) do |f| %>
     <%= render "devise/shared/error_messages", resource: current_user %>
 
-    <div class="field">
+    <div class="field wide">
       <%= f.label :email %>
       <%= f.text_field :email, autocomplete: "email" %>
     </div>
 
-    <div class="field">
+    <div class="field wide">
       <%= f.label :current_password %>
       <%= f.password_field :current_password, autocomplete: "current-password" %>
     </div>

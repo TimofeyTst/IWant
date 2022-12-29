@@ -4,7 +4,7 @@
       <%= f.label :avatar, (t 'Profile photo') %>
       <%= f.file_field :avatar, :id => "imgInp", data: { controller: "img-preview" } %>
     </div>
-    <div class="field ">
+    <div class="field wide">
       <%= image_tag 'default_preview.png', id: 'preview', class: 'avatar-mini' %>
     </div>
 
